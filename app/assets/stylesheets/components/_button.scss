@@ -80,3 +80,34 @@
 .form-submit-button {
   justify-content: center;
 }
+
+.btn-black {
+  color: white;
+  padding: 8px 64px;
+  border-radius: 12px;
+  font-weight: bold;
+  background: #000000;
+  transition: background 0.3s ease;
+  border: 1px solid #000000;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.btn-black a {
+  text-decoration: none;
+  color: white;
+}
+
+.btn-black-navbar {
+  color: white;
+  padding: 8px 32px;
+  border-radius: 12px;
+  font-weight: bold;
+  background: #000000;
+  transition: background 0.3s ease;
+  border: 1px solid #000000;
+  text-align: center;
+  margin: 10px auto;
+  display: flex;
+  justify-content: flex-start;
+}
