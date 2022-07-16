@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def my_posts
     if user_signed_in?
-      @my_posts = @user.current_user
+      redirect_to my_posts_path
     else
       redirect_to root_path
     end

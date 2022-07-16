@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Add your post</h1>
+
+      <%= simple_form_for [ @post ] do |f| %>
+        <%= f.input :original_url %>
+        <%= f.input :note %>
+        <%= f.submit "Save" %>
+    <% end %>
+</div>
