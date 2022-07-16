@@ -2,14 +2,16 @@ require 'nokogiri'
 require 'open-uri'
 
 class PostsController < ApplicationController
-  before_action :set_pet, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @posts = Post.find()
-  end
+
+  # def index
+  #   @posts = Post.find()
+  # end
 
   def new
     @post = Post.new
+    scrape
   end
 
   def create
@@ -23,7 +25,7 @@ class PostsController < ApplicationController
     @post.title = doc.css(‘h1’)
     console.log(@post.title)
     @post.save
-    redirect_to posts_path
+    redirect_to my_posts_path
   end
 
   def show
@@ -49,7 +51,7 @@ class PostsController < ApplicationController
 
   def home
     if user_signed_in?
-      redirect_to posts_path
+      redirect_to my_posts_path
     end
   end
 
