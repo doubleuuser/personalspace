@@ -1,13 +1,13 @@
-require 'nokogiri'
+require 'metainspector'
 require 'open-uri'
 
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
 
-  # def index
-  #   @posts = Post.find()
-  # end
+  def index
+    @posts = Post.all
+  end
 
   def new
     @post = Post.new
@@ -16,14 +16,26 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    puts @post
 
     page_url = @post.original_url
     puts page_url
-    html = URI.open(page_url)
-    doc = Nokogiri::HTML(html)
-    @post.title = doc.css(‘h1’)
-    console.log(@post.title)
+    page = MetaInspector.new(page_url)
+    puts @post.title = page.best_title
+    puts @post.original_author = page.best_author
+    puts @post.description = page.best_description
+    puts @post.image = page.images.best
+
+
+    # html = URI.open(page_url)
+    # doc = Nokogiri::HTML(html)
+    # puts doc.meta_encoding
+    # if doc.css('title') != ""
+    #   @post.title = doc.css('title')
+    #   puts @post.title
+    # elsif doc.css('meta') != ""
+    #   @post.title = doc.css('meta')
+    #   puts @post.title
+    # end
     @post.save
     redirect_to my_posts_path
   end
