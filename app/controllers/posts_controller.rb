@@ -1,12 +1,16 @@
+require ‘nokogiri’
+require ‘open-uri’
+
 class PostsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.find()
   end
 
   def new
     @post = Post.new
+    scrape
   end
 
   def create
@@ -46,7 +50,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:orginal_url, :title, :image, :note)
+    params.require(:post).permit(:orginal_url, :image, :note)
   end
 
   def set_post
