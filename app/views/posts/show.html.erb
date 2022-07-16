@@ -1,0 +1,12 @@
+<div class="container">
+  <h1><%= @post.title %></h1>
+      <% if @post.image.attached? %>
+        <%= cl_image_tag @image.photo.key, height: 200 %>
+      <% end %>
+        <p><strong>title:</strong> <%= @post.title %></p>
+        <%#<strong>Description:</strong> <%= @post.orginal_url %>
+        <p><strong>Post:</strong> <%= @post.note %></p>
+        <% if @pet.user != current_user %>
+          <button><%= link_to "Edit Post", edit_post_path(@post)%></button>
+        <% end %>
+</div>
