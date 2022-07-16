@@ -1,5 +1,16 @@
 <div class="container">
-  <h1><%= @post.title %></h1>
-        <p><strong>Post:</strong> <%= @post.note %></p>
+
+  <div class="card-post">
+    <div class="card-post-original">
+      <h1><%= @post.title %></h1>
+      <p><%= @post.description %></p>
+      <%= cl_image_tag @post.image, height: 400 %>
+      <p><%= @post.original_author %></p>
+    </div>
+    <div class="card-post-note">
+        <p><%= @post.note %></p>
         <button><%= link_to "Edit Post", edit_post_path(@post)%></button>
+    </div>
+  </div>
+
 </div>
