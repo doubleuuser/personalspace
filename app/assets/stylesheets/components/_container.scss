@@ -1,0 +1,77 @@
+.petscontainer {
+  display: flex; /* or inline-flex */
+  justify-content: space-between;
+}
+
+.card-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.container-index {
+  display: flex;
+  margin: auto;
+  background: #FFC65A;
+}
+
+.create-pet {
+  align-items: center;
+}
+
+.index-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background-color: #f9bc89;
+  margin-top: 2vw;
+  padding-top: 2em;
+  align-content: flex-start;
+}
+
+.form-container {
+  background-color: #ffa45a;
+  align-items: center;
+  text-align: center;
+  margin-top: 4vw;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  font-weight:lighter;
+  font-style: italic;
+  font-size:1.2em;
+  padding-bottom: 1em;
+}
+
+.index-banner-container {
+  display: flex;
+  background-color: #f9bc89;
+
+}
+
+.index-top-container {
+  margin-top: 2vw;
+  margin-left: 8vw;
+  margin-right: 8vw;
+}
+
+.mypets-container {
+  background-color: #f9bc89;
+}
+
+/* .bookings-container {
+  /* background-color: #f9bc89; */
+  /* display: flex; } */
+
+
+.bookings-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background-color: #f9bc89;
+  margin-top: 2vw;
+  padding-top: 2em;
+}
