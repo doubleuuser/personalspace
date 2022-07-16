@@ -11,13 +11,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    scrape
+    # scrape
   end
 
   def create
     @post = Post.new(post_params)
     puts @post
-
     page_url = @post.original_url
     puts page_url
     html = URI.open(page_url)

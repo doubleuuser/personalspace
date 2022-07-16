@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2022_07_16_062402) do
 
   # These are extensions that must be enabled in order to support this database
@@ -45,6 +44,7 @@ ActiveRecord::Schema.define(version: 2022_07_16_062402) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.string "orginal_url"
     t.string "note"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 2022_07_16_062402) do
     t.string "title"
     t.string "description"
     t.bigint "user_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
     t.string "original_url"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
