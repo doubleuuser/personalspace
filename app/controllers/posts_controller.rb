@@ -1,8 +1,9 @@
-require ‘nokogiri’
-require ‘open-uri’
+require 'nokogiri'
+require 'open-uri'
 
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+
 
   # def index
   #   @posts = Post.find()
@@ -15,7 +16,14 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user = current_user
+    puts @post
+
+    page_url = @post.original_url
+    puts page_url
+    html = URI.open(page_url)
+    doc = Nokogiri::HTML(html)
+    @post.title = doc.css(‘h1’)
+    console.log(@post.title)
     @post.save
     redirect_to my_posts_path
   end
@@ -50,7 +58,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:orginal_url, :image, :note)
+    params.require(:post).permit(:original_url, :image, :note)
   end
 
   def set_post
