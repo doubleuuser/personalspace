@@ -3,6 +3,7 @@ require 'open-uri'
 
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :my_posts]
 
 
   def index
@@ -66,5 +67,9 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user
   end
 end

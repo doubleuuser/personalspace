@@ -3,9 +3,12 @@
       <%# <ul></ul> %>
 
           <div class="card-post">
-            <h2><%= post.title %>
-            <li><p><%= post.description %></p></li>
-            <button class="btn btn-ghost"> <%= link_to "view", post_path(post) %></button>
+            <h2><%= post.title.truncate(100) %>
+            <%= cl_image_tag post.image, height: 100 %>
+            <li><p><%= post.description.truncate(100) %></p></li>
+            <button class="btn btn-ghost"> <%= link_to "Edit", edit_post_path(post) %></button>
+            <button class="btn btn-ghost"> <%= link_to "Delete", my_posts_path(post), method: :delete, data: { confirm: "Are you sure?" } %></button>
+       
           </div>
 
       <% end %>
