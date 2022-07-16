@@ -11,12 +11,11 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    scrape
+    # scrape
   end
 
   def create
     @post = Post.new(post_params)
-
     page_url = @post.original_url
     puts page_url
     page = MetaInspector.new(page_url)
