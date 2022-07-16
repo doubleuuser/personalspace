@@ -19,24 +19,16 @@ class PostsController < ApplicationController
     page_url = @post.original_url
     puts page_url
     page = MetaInspector.new(page_url)
+    @post.user = current_user
+    puts "-------------------------------------"
+    puts "-------------------------------------"
+    puts @post.note
     puts @post.title = page.best_title
     puts @post.original_author = page.best_author
     puts @post.description = page.best_description
     puts @post.image = page.images.best
-
-
-    # html = URI.open(page_url)
-    # doc = Nokogiri::HTML(html)
-    # puts doc.meta_encoding
-    # if doc.css('title') != ""
-    #   @post.title = doc.css('title')
-    #   puts @post.title
-    # elsif doc.css('meta') != ""
-    #   @post.title = doc.css('meta')
-    #   puts @post.title
-    # end
-    @post.save
-    redirect_to my_posts_path
+    puts @post.save!
+    redirect_to post_path(@post)
   end
 
   def show
@@ -69,7 +61,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:original_url, :image, :note)
+    params.require(:post).permit(:original_url, :note)
   end
 
   def set_post
