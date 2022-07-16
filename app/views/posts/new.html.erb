@@ -2,11 +2,15 @@
   <h1>Add your post</h1>
 
       <%= simple_form_for [ @post ] do |f| %>
-        <%= f.input :image, as: :file %>
-        <%= f.input :title %>
-        <%= f.input :note %>
         <%= f.input :orginal_url %>
+<<<<<<< HEAD
         <%= f.submit "Add my post" %>
+=======
+        <%= f.input :note %>
+        <%= f.submit "Save" %>
+
+
+>>>>>>> b3cc087e5961a7b21576f97b78ccdadd3e0fb72e
 
     <% end %>
 </div>

@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :posts
 
-
-  get 'users/:id/my_posts', to: 'posts#my_posts', as: 'my_posts'
+  get 'users/my_posts', to: 'posts#my_posts', as: 'my_posts'
 
 end

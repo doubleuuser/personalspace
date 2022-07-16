@@ -1,19 +1,23 @@
-class PostsController < ApplicationController
-  before_action :set_pet, only: [:show, :edit, :update, :destroy]
+require ‘nokogiri’
+require ‘open-uri’
 
-  def index
-    @posts = Post.all
-  end
+class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
+  # def index
+  #   @posts = Post.find()
+  # end
 
   def new
     @post = Post.new
+    scrape
   end
 
   def create
     @post = Post.new(post_params)
     @post.user = current_user
     @post.save
-    redirect_to posts_path
+    redirect_to my_posts_path
   end
 
   def show
@@ -39,14 +43,14 @@ class PostsController < ApplicationController
 
   def home
     if user_signed_in?
-      redirect_to posts_path
+      redirect_to my_posts_path
     end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:orginal_url, :title, :image, :note)
+    params.require(:post).permit(:orginal_url, :image, :note)
   end
 
   def set_post
