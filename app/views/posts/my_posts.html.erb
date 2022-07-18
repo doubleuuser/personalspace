@@ -1,15 +1,30 @@
-<div class="feed">
-      <% @my_posts.each do |post| %>
-      <%# <ul></ul> %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <body class="background-home">
+          <% @my_posts.each do |post| %>
+          <%# <ul></ul> %>
 
-          <div class="card-post">
-            <h2><%= post.title %>
-            <li><p><%= post.description %></p></li>
-            <button class="btn btn-ghost"> <%= link_to "view", post_path(post) %></button>
-          </div>
+              <div class="card-product">
+                <h2><%= post.title %>
+                <li><p><%= post.description %></p></li>
+                <button class="btn btn-ghost"> <%= link_to "view", post_path(post) %></button>
+                <div class="my-posts-container">
+                <div>
+                <i class="fas fa-edit"></i>
+                <i class="fas fa-trash-alt"></i>
+                </div>
+                <div>
+                <i class="fas fa-star"></i>
+                <i class="fab fa-twitter"></i>
+                </div>
+                </div>
+              </div>
 
-      <% end %>
+          <% end %>
 
-      <button ><%= link_to "Add Post", new_post_path %></button>
-
+          <button class="btn-flat-centered"><%= link_to "Add Post", new_post_path %></button>
+      </body>
     </div>
+  </div>
+</div>
