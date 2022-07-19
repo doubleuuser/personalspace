@@ -47,11 +47,6 @@ class PostsController < ApplicationController
     @my_posts = current_user.posts
   end
 
-  def user_posts
-    set_post
-    @user_posts = @post.user.posts
-  end
-
   def destroy
     @post.destroy
     redirect_to my_posts_path(current_user)
