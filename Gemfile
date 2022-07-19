@@ -66,3 +66,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'cloudinary', '~> 1.16.0'
 
 gem 'metainspector'
+
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
