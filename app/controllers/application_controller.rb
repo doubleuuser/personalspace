@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :description, :photo])
   end
+
+  def after_sign_in_path_for(resource)
+    my_posts_path
+  end
 end

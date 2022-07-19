@@ -7,7 +7,9 @@
   transition: background 0.3s ease;
   border: 1px solid #3AB4F2;
   text-align: center;
-  margin-bottom: 8px;
+  align-items: center;
+  margin: 0 auto;
+  display: block;
 }
 
 .btn-gradient:hover {
@@ -24,11 +26,11 @@
 }
 
 .btn-ghost {
-  color: #ff8244;
-  border: 1px solid #E67E22;
+  color: #3AB4F2;
+  border: 1px solid #3AB4F2;
   padding: 8px 24px;
   border-radius: 50px;
-  background: linear-gradient(#fb7d16, #f06305);
+  background: linear-gradient(#69aef8, #69aef8);
   font-weight: lighter;
   /* opacity: 0.6; */
   transition: opacity 0.3s ease;
@@ -42,7 +44,7 @@
 .btn-flat-centered {
   color:white;
   font-weight: bold;
-  background: #E67E22;
+  background: #2294e6;
   padding: 8px 24px;
   border-radius: 4px;
   transition: background 0.3s ease;
@@ -59,12 +61,13 @@
 
 .btn-flat-index {
   color: white;
-  border: 2px solid #E67E22;
+  border: 2px solid #2294e6;
   background: linear-gradient(#fb7d16, #f06305);
   padding: 8px 24px;
   border-radius: 4px;
   transition: background 0.3s ease;
   margin-bottom: 12px;
+  margin-top: 8px;
 }
 
 .btn-flat-index a {

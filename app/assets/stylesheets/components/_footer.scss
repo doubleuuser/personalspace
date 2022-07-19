@@ -2,19 +2,53 @@
   background: #F4F4F4;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  bottom: 0;
+  width: 100%;
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
-
+.footer-links a {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
 .footer-links a:hover {
   opacity: 1;
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+.mobile-nav {
+  background: #F1F1F1;
+  position: fixed;
+  bottom: 0;
+  height: 65px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.bloc-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bloc-icon img {
+  width: 30px;
+}
+
+@media screen and (min-width: 600px) {
+  .mobile-nav {
+  display: none;
+  }
 }
