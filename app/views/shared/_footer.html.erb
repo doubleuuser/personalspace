@@ -9,13 +9,13 @@
 </div>
  %>
  <nav class="mobile-nav">
-        <a href="#" class="bloc-icon">
+        <%= link_to my_posts_path do %>
             <i class="fas fa-home"></i>
-        </a>
-        <a href="#" class="bloc-icon">
+        <% end %>
+        <%= link_to new_post_path do %>
             <i class="fas fa-plus"></i>
-        </a>
-        <a href="#" class="bloc-icon">
+       <% end %>
+        <%= link_to my_posts_path do %>
             <i class="fas fa-user"></i>
-        </a>
-    </nav>
+        <% end %>
+  </nav>
