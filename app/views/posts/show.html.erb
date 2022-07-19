@@ -1,3 +1,7 @@
+<%= display_meta_tags og: { title: @post.title, description: @post.description, image: @post.image } %>
+<%= display_meta_tags twitter: { title: @post.title, description: @post.description, image: @post.image } %>
+
+
 <div class="container">
   <div class="card-post"><%= link_to @post.original_url do %>
     <div class="card-post-original">
