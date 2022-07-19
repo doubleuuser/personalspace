@@ -2,12 +2,15 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
 
   def index
-    my_posts
+    posts
+  end
+
+  def show
   end
 
   def my_posts
     if user_signed_in?
-      redirect_to my_posts_path
+      redirect_to posts_path
     else
       redirect_to root_path
     end

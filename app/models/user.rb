@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_one_attached :photo
+
+  acts_as_followable
+  acts_as_follower
 end

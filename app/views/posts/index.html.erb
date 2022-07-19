@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Post!</h1>
+  <div>
+    <% @posts.each do |post| %>
+      <h3><button><%= link_to post.user.username, user_path(post.user) %></button></h3>
+      <h3><strong><%= post.title %></strong></h3>
+      <h3><strong><%= post.note %></strong></h3>
+      <h3><strong><%= post.image %></strong></h3>
+      <button><%= link_to "View Post", post_path(post) %></button>
+     <% end %>
+  </div>
+
+  <div>
+    <button><%= link_to "Add Post", new_post_path %></button>
+  </div>
+</div>
