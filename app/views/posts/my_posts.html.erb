@@ -5,16 +5,16 @@
           <% @my_posts.each do |post| %>
           <%# <ul></ul> %>
 
-              <div class="card-product">
+              <div class="card-product mx-auto">
                 <h2><%= post.title %>
                 <div style="background-color: white">
                       <p><%= post.description %></p>
                       <button class="btn btn-ghost"> <%= link_to "view", post_path(post) %></button>
                       <div class="my-posts-container" >
                           <div>
-                            <%# <%= link_to edit_post_path do %>
+                            <%= link_to edit_post_path(post) do %>
                               <i class="fas fa-edit"></i>
-                            <%# <% end %>
+                            <% end %>
                             <%# <%= link_to edit_post do %>
                               <i class="fas fa-trash-alt"></i>
                             <%# <% end %>
@@ -23,9 +23,8 @@
                             <%# <%= link_to edit_post do %>
                               <i class="fas fa-star"></i>
                           <%#  <% end %>
-                            <%# <%= link_to edit_post do %>
-                              <i class="fab fa-twitter"></i>
-                            <%# <% end %>
+                           <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(post) %>">
+                            <i class="fab fa-twitter"></i></a>
                           </div>
                         </div>
                 </div>
