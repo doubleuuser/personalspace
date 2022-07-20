@@ -1,18 +1,29 @@
+<div class="index-container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+        <body class="background-home">
+        <h1>Newsfeed <%# <%= image_tag "books.jpg", alt: "Book Icon", width: 50 %></h1>
+          <div>
+                <% @posts.each do |post| %>
+                  <div class="card-index">
+                    <%= image_tag "book-holder.jpg", alt: "Book holder" %>
+                  <div class="card-index-infos">
+                      <h2><button><%= link_to post.user.username, user_path(post.user) %></button></h2>
+                      <h2><strong><%= post.title %></strong></h2>
+                      <%# <h3><strong><%= post.note </strong></h3> %>
+                     <%#  <h3><strong><%= post.image </strong></h2> %>
+                     <div >
+                      <button class="btn btn-flat-index"><%= link_to "View Post", post_path(post) %></button>
+                      </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
 
-<div class="container">
-    <h1>Post!</h1>
-  <div>
-    <% @posts.each do |post| %>
-      <h3><button><%= link_to post.user.username, user_path(post.user) %></button></h3>
-      <h3><strong><%= post.title %></strong></h3>
-      <h3><strong><%= post.note %></strong></h3>
-      <h3><strong><%= post.image %></strong></h3>
-      <button><%= link_to "View Post", post_path(post) %></button>
-     <% end %>
-  </div>
-
-  <div>
-    <button><%= link_to "Add Post", new_post_path %></button>
+          <div>
+            <button><%= link_to "Add Post", new_post_path %></button>
+          </div>
+      </div>
+    </div>
   </div>
 </div>
-

@@ -1,20 +1,25 @@
 <%= display_meta_tags og: { title: @post.title, description: @post.description, image: @post.image } %>
 <%= display_meta_tags twitter: { title: @post.title, description: @post.description, image: @post.image } %>
 
-
 <div class="container">
-  <div class="card-post"><%= link_to @post.original_url do %>
-    <div class="card-post-original">
-      <h1><%= @post.title %></h1>
-      <p><%= @post.description %></p>
-      <%= cl_image_tag @post.image, height: 400 %>
-      <p><%= @post.original_author %></p>
-    </div>
-    <% end %>
-    <div class="card-post-note">
-        <p><%= @post.note %></p>
-        <button><%= link_to "Edit Post", edit_post_path(@post)%></button>
-    </div>
+  <div class="row justify-content-center">
+  <div class="col-12 col-lg-6">
+      <body class="background-home">
+        <div class="card-product-show">
+          <div><%= link_to @post.original_url do %>
+            <div class="card-product-infos-show">
+              <h2><%= @post.title %></h2>
+              <p><%= @post.description %></p>
+              <%= cl_image_tag @post.image, height: 200 %>
+              <p><%= @post.original_author %></p>
+            </div>
+            <% end %>
+            <div>
+                <p><%= @post.note %></p>
+                <button class="btn-ghost"><%= link_to "Edit Post", edit_post_path(@post)%></button>
+            </div>
+          </div>
+          </div>
+      </div>
   </div>
-
 </div>
