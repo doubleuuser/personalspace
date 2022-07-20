@@ -1,1 +1,9 @@
 <%= @user.username %>
+
+<% unless @user == current_user %>
+  <% if current_user.following?(@user) %>
+    <%= link_to "Unfollow", unfollow_user_path(@user), data: { confirm: "Are you sure?" } %>
+  <% else %>
+    <%= link_to "Follow", follow_user_path(@user) %>
+  <% end %>
+<% end %>
