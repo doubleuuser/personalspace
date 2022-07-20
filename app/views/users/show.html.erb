@@ -7,3 +7,22 @@
     <%= link_to "Follow", follow_user_path(@user) %>
   <% end %>
 <% end %>
+
+<div>
+    <div>
+      <% @user.posts.each do |post| %>
+          <div>
+            <h2><%= post.title %></h2>
+            <p><%= post.description %></p>
+            <p><%= post.note %></p>
+            <% if @user == current_user %>
+              <button> <%= link_to "View", post_path(post) %></button>
+              <button> <%= link_to "Edit", edit_post_path(post) %></button>
+              <button> <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" } %></button>
+            <% else %>
+              <button> <%= link_to "View", post_path(post) %></button>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+</div>
