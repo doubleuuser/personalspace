@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 
   get 'users/my_posts', to: 'posts#my_posts', as: 'my_posts'
 
+  resources :users do
+    member do
+      get :follow
+      get :unfollow
+    end
+  end
 end
