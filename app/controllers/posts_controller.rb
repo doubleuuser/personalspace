@@ -43,18 +43,18 @@ class PostsController < ApplicationController
     redirect_to post_path(@post)
   end
 
-  def my_posts
-    @my_posts = current_user.posts
-  end
+  # def my_posts
+  #   @my_posts = current_user.posts
+  # end
 
   def destroy
     @post.destroy
-    redirect_to my_posts_path(current_user)
+    redirect_to user_path(current_user)
   end
 
   def home
     if user_signed_in?
-      redirect_to my_posts_path
+      redirect_to posts_path
     end
   end
 
