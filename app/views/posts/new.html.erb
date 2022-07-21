@@ -6,7 +6,7 @@
 
           <%= simple_form_for [ @post ] do |f| %>
             <%= f.input :original_url %>
-            <%= f.input :note %>
+            <%= f.input :note, as: :text %>
             <%= f.submit "Save", class: "btn btn-gradient"  %>
           <% end %>
         </body>
