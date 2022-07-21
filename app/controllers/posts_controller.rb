@@ -1,5 +1,6 @@
 require 'metainspector'
 require 'open-uri'
+require 'friendly_id'
 
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
