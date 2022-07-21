@@ -9,4 +9,7 @@ class User < ApplicationRecord
 
   acts_as_followable
   acts_as_follower
+
+  extend FriendlyId
+  friendly_id :username, use: :slugged
 end
