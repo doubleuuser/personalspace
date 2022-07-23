@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     puts @post.description = page.best_description
     puts @post.image = page.images.best
     puts @post.save!
-    redirect_to post_path(@post)
+    redirect_to posts_path
   end
 
   def show

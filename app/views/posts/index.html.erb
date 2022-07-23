@@ -19,6 +19,21 @@
               </div>
             <% end %>
             <% end %>
+
+            <% @posts.each do |post| %>
+            <% if current_user == post.user %>
+              <div class="card-index">
+                <%= cl_image_tag post.image, width: 200  %>
+                  <div class="card-index-infos">
+                      <h2><button><%= link_to post.user.username, user_path(post.user) %></button></h2>
+                      <h2><strong><%= post.title %></strong></h2>
+                  <div >
+                  <button class="btn btn-flat-index"><%= link_to "View Post", post_path(post) %></button>
+              </div>
+              </div>
+              </div>
+            <% end %>
+            <% end %>
           </div>
 
 
