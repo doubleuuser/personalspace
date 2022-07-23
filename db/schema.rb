@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 2022_07_21_133647) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["followable_id", "followable_type"], name: "fk_followables"
-    t.index ["followable_type", "followable_id"], name: "index_follows_on_followable"
+    t.index ["followable_type", "followable_id"], name: "index_follows_on_followable_type_and_followable_id"
     t.index ["follower_id", "follower_type"], name: "fk_follows"
-    t.index ["follower_type", "follower_id"], name: "index_follows_on_follower"
+    t.index ["follower_type", "follower_id"], name: "index_follows_on_follower_type_and_follower_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -69,17 +69,18 @@ ActiveRecord::Schema.define(version: 2022_07_21_133647) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "orginal_url"
     t.string "note"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
     t.string "description"
-    t.bigint "user_id"
     t.string "original_url"
     t.string "original_author"
+    t.bigint "user_id"
+    t.string "slug"
     t.integer "status", default: 0
+    t.index ["slug"], name: "index_posts_on_slug", unique: true
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
