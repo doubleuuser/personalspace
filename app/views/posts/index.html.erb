@@ -1,42 +1,40 @@
 <div class="index-container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-        <body class="background-home">
-
-          <h1>Following</h1>
+      <div class="background-home">
+        <h1>Newsfeed</h1>
           <div>
             <% @posts.each do |post| %>
-            <% if current_user.following?(post.user) == true and post.status != "private" %>
-              <div class="card-index">
-                <%= cl_image_tag post.image, width: 200  %>
-                  <div class="card-index-infos">
-                      <h2><button><%= link_to post.user.username, user_path(post.user) %></button></h2>
-                      <h2><strong><%= post.title %></strong></h2>
-                  <div >
-                  <button class="btn btn-flat-index"><%= link_to "View Post", post_path(post) %></button>
-              </div>
-              </div>
-              </div>
-            <% end %>
-            <% end %>
-
-            <% @posts.each do |post| %>
-            <% if current_user == post.user %>
-              <div class="card-index">
-                <%= cl_image_tag post.image, width: 200  %>
-                  <div class="card-index-infos">
-                      <h2><button><%= link_to post.user.username, user_path(post.user) %></button></h2>
-                      <h2><strong><%= post.title %></strong></h2>
-                  <div >
-                  <button class="btn btn-flat-index"><%= link_to "View Post", post_path(post) %></button>
-              </div>
-              </div>
-              </div>
-            <% end %>
+              <% if current_user.following?(post.user) == true and post.status != "private" %>
+                <div class="card-index-page mx-auto"><%= link_to post.original_url do %>
+                  <div>
+                    <h2 class="h2-show-page"><%= post.title.truncate(100) %></h2>
+                    <%= image_tag(post.image, width: 200) %>
+                  </div>
+                <% end %></div>
+                <div style="background-color: white"><%= link_to post_path(post) do %>
+                    <h2><button><%= link_to post.user.username, user_path(post.user) %></button></h2>
+                    <p class="p-user-show-page"><%= post.note %></strong></p>
+                </div><% end %>
+              <% end %>
             <% end %>
           </div>
-
-
+          <div>
+            <% @posts.each do |post| %>
+              <% if current_user == post.user %>
+                <div class="card-index-page mx-auto"><%= link_to post.original_url do %>
+                  <div>
+                    <h2 class="h2-show-page"><%= post.title.truncate(100) %></h2>
+                    <%= image_tag(post.image, width: 200) %>
+                  </div>
+                <% end %></div>
+                <div style="background-color: white"><%= link_to post_path(post) do %>
+                    <h2><button><%= link_to post.user.username, user_path(post.user) %></button></h2>
+                    <p class="p-user-show-page"><%= post.note %></strong></p>
+                </div><% end %>
+              <% end %>
+            <% end %>
+          </div>
           <div>
             <button><%= link_to "Add Post", new_post_path %></button>
           </div>
