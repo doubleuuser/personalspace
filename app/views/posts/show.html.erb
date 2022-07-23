@@ -8,14 +8,14 @@
         <div class="card-product-show">
           <div><%= link_to @post.original_url do %>
             <div class="card-product-infos-show">
-              <h2><%= @post.title %></h2>
-              <p><%= @post.description %></p>
-              <%= cl_image_tag @post.image, height: 200 %>
+              <h2 class="h2-show-page"><%= @post.title.truncate(50) %></h2>
+              <p class="p-show-page"><%= @post.description.truncate(100) %></p>
+              <%= cl_image_tag @post.image, width: 200 %>
               <p><%= @post.original_author %></p>
             </div>
             <% end %>
             <div>
-                <p><%= @post.note %></p>
+                <p><%= @post.note.truncate(100) %></p>
                 <button class="btn-ghost"><%= link_to "Edit Post", edit_post_path(@post)%></button>
             </div>
           </div>

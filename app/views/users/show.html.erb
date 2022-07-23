@@ -1,28 +1,57 @@
-<%= @user.username %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <body class="background-home">
+        <div class="profile-header">
+              <%= cl_image_tag @user.photo.key %>
+              <div>
+                <strong><%= @user.username %></strong>
+                <%= @user.description %>
+              </div>
+              <div>
+                <% unless @user == current_user %>
+                  <% if current_user.following?(@user) %>
+                    <button class="btn btn-Unfollow"><%= link_to "Unfollow", unfollow_user_path(@user), data: { confirm: "Are you sure?" } %></button>
+                  <% else %>
+                    <button class="btn btn-Follow"><%= link_to "Follow", follow_user_path(@user) %></button>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+        </div>
 
-<% unless @user == current_user %>
-  <% if current_user.following?(@user) %>
-    <%= link_to "Unfollow", unfollow_user_path(@user), data: { confirm: "Are you sure?" } %>
-  <% else %>
-    <%= link_to "Follow", follow_user_path(@user) %>
-  <% end %>
-<% end %>
+            <div>
+              <% @user.posts.each do |post| %>
+                  <div class="card-product-show-page mx-auto">
+                 <h2 class="h2-show-page"><%= post.title.truncate(100) %>
+                 <%= cl_image_tag post.image, width: 200 %>
 
-<div>
-    <div>
-      <% @user.posts.each do |post| %>
-          <div>
-            <h2><%= post.title %></h2>
-            <p><%= post.description %></p>
-            <p><%= post.note %></p>
-            <% if @user == current_user %>
-              <button> <%= link_to "View", post_path(post) %></button>
-              <button> <%= link_to "Edit", edit_post_path(post) %></button>
-              <button> <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" } %></button>
-            <% else %>
-              <button> <%= link_to "View", post_path(post) %></button>
-            <% end %>
-          </div>
-      <% end %>
+                 <div style="background-color: white">
+                 <p class="p-user-show-page"><%= post.description.truncate(70) %></p>
+                       <button class="btn btn-ghost-show"> <%= link_to "view", post_path(post) %></button>
+                       <div class="my-posts-container" >
+                           <div>
+                             <%= link_to edit_post_path(post) do %>
+                               <i class="fas fa-edit" style="color: #111928"></i>
+                             <% end %>
+                             <%# <%= link_to edit_post do %>
+                               <i class="fas fa-trash-alt" style="color: #111928"></i>
+                             <%# <% end %>
+                           </div>
+                           <div>
+                             <%# <%= link_to edit_post do %>
+                               <i class="fas fa-star"style="color: #111928"></i>
+                           <%#  <% end %>
+                            <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(post) %>">
+                             <i class="fab fa-twitter" style="color: #111928"></i></a>
+
+                           </div>
+                         </div>
+                 </div>
+               </div>
+           <% end %>
+           <button class="btn-flat-centered"><%= link_to "Add Post", new_post_path %></button>
+      </body>
     </div>
+  </div>
 </div>
