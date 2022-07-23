@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @user = current_user
   end
 
   def new
@@ -62,7 +63,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:original_url, :note)
+    params.require(:post).permit(:original_url, :note, :status)
   end
 
   def set_post

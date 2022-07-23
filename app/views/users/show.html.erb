@@ -5,7 +5,9 @@
         <div class="profile-header">
               <%= cl_image_tag @user.photo.key %>
               <div>
+                <div>
                 <strong><%= @user.username %></strong>
+                </div>
                 <%= @user.description %>
               </div>
               <div>
