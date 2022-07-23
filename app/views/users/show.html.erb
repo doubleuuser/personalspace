@@ -44,7 +44,9 @@
                            <%#  <% end %>
                             <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(post) %>">
                              <i class="fab fa-twitter" style="color: #111928"></i></a>
-
+                            <% if @user == current_user %>
+                            <button> <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" } %></button>
+                            <% end %>
                            </div>
                          </div>
                  </div>
