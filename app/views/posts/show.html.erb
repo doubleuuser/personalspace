@@ -18,6 +18,7 @@
                 <p><%= @post.note.truncate(100) %></p>
                 <% unless @post.user != current_user %>
                 <button class="btn-ghost"><%= link_to "Edit Post", edit_post_path(@post)%></button>
+                <button> <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %></button>
                 <% end %>
             </div>
           </div>
