@@ -6,18 +6,40 @@
           <div>
                 <% @posts.each do |post| %>
                   <% if post.status == "public" %>
-                  <div class="card-index">
-                    <%= cl_image_tag post.image, width: 200  %>
-                  <div class="card-index-infos">
+                  <div class="card-index-page mx-auto"><%= link_to post.original_url do %>
+                  <div>
+                  <h2 class="h2-show-page"><%= post.title.truncate(100) %></h2>
+                  <%= image_tag(post.image, width: 200) %>
+                </div><% end %>
+                    <div style="background-color: white"><%= link_to post_path(post) do %>
+
                       <h2><button><%= link_to post.user.username, user_path(post.user) %></button></h2>
-                      <h2><strong><%= post.title %></strong></h2>
-                      <%# <h3><strong><%= post.note </strong></h3> %>
-                     <%#  <h3><strong><%= post.image </strong></h2> %>
-                     <div >
+                      <%# <h2><strong><%= post.title </strong></h2>%>
+                      <p class="p-user-show-page"><%= post.note %></strong></p>
+                    </div><% end %>
+
+                      <div>
                       <button class="btn btn-flat-index"><%= link_to "View Post", post_path(post) %></button>
                       </div>
-              </div>
-            </div>
+                      <div class="my-posts-container" >
+                           <%# <div> %>
+                             <%# %= link_to edit_post_path(post) do %>
+                              <%#  <i class="fas fa-edit" style="color: #111928"></i>
+                             <% end %>
+                             <%# <%= link_to edit_post do %>
+                               <%# <i class="fas fa-trash-alt" style="color: #111928"></i> %>
+                             <%# <% end %>
+                           <%# </div>
+                           <div> %>
+                             <%# <%= link_to edit_post do %>
+                               <%# <i class="fas fa-star"style="color: #111928"></i> %>
+                           <%#  <% end %>
+                            <%# <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(post) %>"> %>
+                             <%# <i class="fab fa-twitter" style="color: #111928"></i></a> %>
+                           <%# </div> %>
+                         </div>
+                  </div>
+
             <% end %>
             <% end %>
           </div>

@@ -22,13 +22,15 @@
 
             <div>
               <% @user.posts.each do |post| %>
-                  <div class="card-product-show-page mx-auto">
-                 <h2 class="h2-show-page"><%= post.title.truncate(100) %>
-                 <%= cl_image_tag post.image, width: 200 %>
-
-                 <div style="background-color: white">
-                 <p class="p-user-show-page"><%= post.description.truncate(70) %></p>
-                       <button class="btn btn-ghost-show"> <%= link_to "view", post_path(post) %></button>
+                  <div class="card-product-show-page mx-auto"><%= link_to post.original_url do %>
+                  <div>
+                  <h2 class="h2-show-page"><%= post.title.truncate(100) %></h2>
+                  <%= image_tag post.image, width: 200 %>
+                </div><% end %>
+                  <div style="background-color: white"><%= link_to post_path(post) do %>
+                    <p class="p-user-show-page"><%= post.description.truncate(70) %></p>
+                  </div><% end %>
+                       <%# <button class="btn btn-ghost-show"> <%= link_to "view", post_path(post)</button> %>
                        <div class="my-posts-container" >
                            <div>
                              <%= link_to edit_post_path(post) do %>
@@ -44,11 +46,11 @@
                            <%#  <% end %>
                             <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(post) %>">
                              <i class="fab fa-twitter" style="color: #111928"></i></a>
-
                            </div>
                          </div>
-                 </div>
-               </div>
+
+                    </div>
+                  </div>
            <% end %>
            <button class="btn-flat-centered"><%= link_to "Add Post", new_post_path %></button>
       </body>

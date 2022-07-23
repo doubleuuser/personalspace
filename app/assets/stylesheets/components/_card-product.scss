@@ -69,18 +69,21 @@
 
 .card-index {
   overflow: hidden;
-  height: 200px;
-  background: white;
+  height: 270px;
+  width: 300px;
+  background: linear-gradient( #1363DF 60%, white 40%);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
+  /* display: flex; */
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+  border-radius: 4px;
+  justify-content: center;
 }
 
 .card-index img {
-  height: 100%;
   width: 120px;
-  object-fit: cover;
+  align-items: center;
+  margin-left: 100px;
 }
 
 .card-index h2 {
@@ -110,9 +113,37 @@
   width: 300px;
   background: linear-gradient( #1363DF 60%, white 40%);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
+  /* display: flex; */
   align-items: center;
   margin-bottom: 24px;
   border-radius: 4px;
   justify-content: center;
+}
+
+.card-product-show-page img {
+  width: 120px;
+  align-items: center;
+  margin-left: 100px;
+
+}
+
+.card-index-page {
+  overflow: hidden;
+  height: 270px;
+  width: 300px;
+  background: linear-gradient( #1363DF 60%, white 40%);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  /* display: flex; */
+  align-items: center;
+  margin-bottom: 24px;
+  border-radius: 4px;
+  justify-content: center;
+}
+
+
+.card-index-page img {
+  width: 120px;
+  align-items: center;
+  margin-left: 100px;
+
 }
