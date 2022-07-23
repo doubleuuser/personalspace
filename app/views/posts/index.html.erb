@@ -5,7 +5,6 @@
         <h1>Newsfeed <%# <%= image_tag "books.jpg", alt: "Book Icon", width: 50 %></h1>
           <div>
                 <% @posts.each do |post| %>
-                  <% if post.status == "public" %>
                   <div class="card-index">
                     <%= cl_image_tag post.image, width: 200  %>
                   <div class="card-index-infos">
@@ -18,7 +17,6 @@
                       </div>
               </div>
             </div>
-            <% end %>
             <% end %>
           </div>
 
