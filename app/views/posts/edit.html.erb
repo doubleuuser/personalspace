@@ -6,6 +6,7 @@
           <%= simple_form_for [ @post ] do |f| %>
             <%= f.input :note %>
             <%= f.input :original_url %>
+            <%= f.input :status, collection:Post.statuses.keys %>
             <%= f.submit "Update",  class: "btn btn-gradient"%>
           <% end %>
       </body>
