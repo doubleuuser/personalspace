@@ -6,7 +6,7 @@
           <div>
                 <% @posts.each do |post| %>
                   <div class="card-index">
-                    <%= image_tag "book-holder.jpg", alt: "Book holder" %>
+                    <%= cl_image_tag post.image, width: 200  %>
                   <div class="card-index-infos">
                       <h2><button><%= link_to post.user.username, user_path(post.user) %></button></h2>
                       <h2><strong><%= post.title %></strong></h2>

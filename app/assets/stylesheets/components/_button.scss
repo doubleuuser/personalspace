@@ -26,7 +26,7 @@
 }
 
 .btn-ghost {
-  color: #3AB4F2;
+  color: white;
   border: 1px solid #3AB4F2;
   padding: 8px 24px;
   border-radius: 50px;
@@ -35,6 +35,8 @@
   /* opacity: 0.6; */
   transition: opacity 0.3s ease;
   margin-left: 150px;
+  margin-bottom: 12px;
+  margin-top: 12px;
 }
 
 .btn-ghost a {
@@ -116,4 +118,42 @@
   margin: 10px auto;
   display: flex;
   justify-content: flex-start;
+}
+
+.btn-Follow {
+  color: white;
+  padding: 4px ;
+  border-radius: 8px;
+  font-weight: bold;
+  background-color: #5FD068;
+  transition: background 0.3s ease;
+ /*  border: 1px solid #000000; */
+  text-align: center;
+  margin: 10px auto;
+}
+
+.btn-unfollow {
+  color: white;
+  padding: 8px 64px;
+  border-radius: 12px;
+  font-weight: bold;
+  background: #000000;
+  transition: background 0.3s ease;
+  border: 1px solid #000000;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.btn-ghost-show {
+  color: white;
+  border: 1px solid #3AB4F2;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: linear-gradient(#69aef8, #69aef8);
+  font-weight: lighter;
+  /* opacity: 0.6; */
+  transition: opacity 0.3s ease;
+  margin-left: 150px;
+  margin-bottom: 12px;
+  margin-top: 12px;
 }

@@ -42,7 +42,7 @@
 
 .card-product-show {
   overflow: hidden;
-  height: 600px;
+  height: 400px;
   background: linear-gradient( #1363DF 50%, white 50%);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -60,7 +60,7 @@
 
 .card-product-img-show {
   height: 100%;
-  width: 120px;
+  width: 80px;
   object-fit: cover;
   padding: 4px;
   border-radius: 4px;
@@ -102,4 +102,17 @@
 .card-index .card-index-infos {
   padding: 16px;
   margin: 8px;
+}
+
+.card-product-show-page {
+  overflow: hidden;
+  height: 270px;
+  width: 300px;
+  background: linear-gradient( #1363DF 60%, white 40%);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  border-radius: 4px;
+  justify-content: center;
 }
