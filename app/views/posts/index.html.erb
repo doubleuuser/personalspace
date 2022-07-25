@@ -26,6 +26,7 @@
                     <h2 class="h2-index-page"><%= post.title.truncate(100) %></h2>
                     <%= image_tag(post.image, width: 200) %>
                     <% end %>
+
                     <div><%= link_to post_path(post) do %>
                     <h2><button><%= link_to post.user.username, user_path(post.user) %></button></h2>
                     <p class="p-index-page"><%= post.note %></strong></p>
