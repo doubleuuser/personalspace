@@ -23,12 +23,12 @@
               <% @posts.each do |post| %>
                 <% if current_user == post.user %>
                   <div class="card-index mx-auto"><%= link_to post.original_url do %>
-                    <h2 class="h2-show-page"><%= post.title.truncate(100) %></h2>
+                    <h2 class="h2-index-page"><%= post.title.truncate(100) %></h2>
                     <%= image_tag(post.image, width: 200) %>
                     <% end %>
                     <div><%= link_to post_path(post) do %>
                     <h2><button><%= link_to post.user.username, user_path(post.user) %></button></h2>
-                    <p class="p-user-show-page"><%= post.note %></strong></p>
+                    <p class="p-index-page"><%= post.note %></strong></p>
                   </div><% end %>
                   <% end %>
                   </div>
