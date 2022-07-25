@@ -4,7 +4,7 @@
       <body class="background-home">
         <div class="profile-header">
               <%= cl_image_tag @user.photo.key %>
-              <div>
+              <div class="user-info">
                 <strong><%= @user.username %></strong>
                 <%= @user.description %>
               </div>
@@ -24,7 +24,7 @@
               <% @user.posts.each do |post| %>
                   <div class="card-product-show-page mx-auto">
                  <h2 class="h2-show-page"><%= post.title.truncate(100) %>
-                 <%= cl_image_tag post.image, width: 200 %>
+                 <%= image_tag post.image, width: 200 %>
 
                  <div style="background-color: white">
                  <p class="p-user-show-page"><%= post.description.truncate(70) %></p>
@@ -34,9 +34,11 @@
                              <%= link_to edit_post_path(post) do %>
                                <i class="fas fa-edit" style="color: #111928"></i>
                              <% end %>
-                             <%# <%= link_to edit_post do %>
+                             <% if @user == current_user %>
+                             <%= link_to post_path(post), method: :delete, data: { confirm: "Are you sure?" } do %>
                                <i class="fas fa-trash-alt" style="color: #111928"></i>
-                             <%# <% end %>
+                             <% end %>
+                             <% end %>
                            </div>
                            <div>
                              <%# <%= link_to edit_post do %>
@@ -44,9 +46,9 @@
                            <%#  <% end %>
                             <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(post) %>">
                              <i class="fab fa-twitter" style="color: #111928"></i></a>
-                            <% if @user == current_user %>
-                            <button> <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" } %></button>
-                            <% end %>
+                            <%# <% if @user == current_user %>
+                            <%# <button> <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" }  </button>%>
+                            <%# <% end %>
                            </div>
                          </div>
                  </div>
