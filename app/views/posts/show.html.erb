@@ -10,7 +10,9 @@
             <div class="card-product-infos-show">
               <h2 class="h2-show-page"><%= @post.title.truncate(50) %></h2>
               <p class="p-show-page"><%= @post.description.truncate(100) %></p>
-              <%= image_tag @post.image, width: 200 %>
+              <% if @post.image? %>
+                <%= image_tag @post.image, width: 200 %>
+              <% end %>
               <p><%= @post.original_author %></p>
             </div>
             <% end %>
