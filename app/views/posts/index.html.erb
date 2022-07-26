@@ -12,7 +12,7 @@
                     <% end %>
 
                 <div><%= link_to post_path(post) do %>
-                    <h2><button><%= link_to post.user.username, user_path(post.user) %></button></h2>
+                    <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
                     <p class="p-index-page"><%= post.note %></strong></p>
                   </div><% end %>
                   <% end %>
@@ -28,7 +28,7 @@
                     <% end %>
 
                     <div><%= link_to post_path(post) do %>
-                    <h2><button><%= link_to post.user.username, user_path(post.user) %></button></h2>
+                    <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
                     <p class="p-index-page"><%= post.note %></strong></p>
                   </div><% end %>
                   <% end %>

@@ -10,15 +10,21 @@
             <div class="card-product-infos-show">
               <h2 class="h2-show-page"><%= @post.title.truncate(50) %></h2>
               <p class="p-show-page"><%= @post.description.truncate(100) %></p>
-              <%= cl_image_tag @post.image, width: 200 %>
+              <%= image_tag @post.image, width: 200 %>
               <p><%= @post.original_author %></p>
             </div>
             <% end %>
-            <div>
-                <p><%= @post.note.truncate(100) %></p>
+            <div class="card-product-infos-show-white-space">
+                <p><em><%= @post.note.truncate(100) %></em></p>
                 <% unless @post.user != current_user %>
-                <button class="btn-ghost"><%= link_to "Edit Post", edit_post_path(@post)%></button>
-                <button> <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %></button>
+                <div class="icons-container">
+                  <%= link_to edit_post_path(@post) do %>
+                    <i class="fas fa-edit" style="color: #111928"></i>
+                    <% end %>
+                    <%= link_to post_path(@post), method: :delete, data: { confirm: "Are you sure?" } do %>
+                    <i class="fas fa-trash-alt" style="color: #111928"></i>
+                    <% end %>
+                    </div>
                 <% end %>
             </div>
           </div>
