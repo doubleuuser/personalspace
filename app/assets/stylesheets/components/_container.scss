@@ -26,7 +26,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap; */
-  background-color:  rgb(118,169,250);
+  background-color: white;
  /*  margin-top: 2vw;
   padding-top: 2em;
   align-content: flex-start; */
@@ -88,4 +88,10 @@
   justify-content: space-between;
   padding-left: 24px;
   padding-right: 24px;
+}
+
+.icons-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 32px;
 }

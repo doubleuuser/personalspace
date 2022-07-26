@@ -42,8 +42,8 @@
 
 .card-product-show {
   overflow: hidden;
-  height: 400px;
-  background: linear-gradient( #1363DF 50%, white 50%);
+  height: 350px;
+  background: linear-gradient( #1363DF 60%, white 40%);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -56,39 +56,70 @@
   padding: 16px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
-.card-product-img-show {
+.card-product-infos-show-white-space {
+  /* padding: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: auto; */
+  margin-bottom: 12px;
+}
+
+.card-product-infos-show-white-space p {
+  /* padding: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: auto; */
+  margin-bottom: 24px;
+}
+.card-product-show img {
   height: 100%;
-  width: 80px;
+  width: 200px;
   object-fit: cover;
   padding: 4px;
   border-radius: 4px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-bottom: 30px; */
 }
 
 
 .card-index {
   overflow: hidden;
-  height: 200px;
-  background: white;
+  height: 270px;
+  width: 300px;
+  background: linear-gradient( #1363DF 70%, white 30%);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  justify-content: center;
 }
 
 .card-index img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+  padding: 4px;
+  border-radius: 4px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 .card-index h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
-  text-align: left;
+  text-align: center;
   margin-bottom: 12px;
+  color: white;
 }
 
 .card-index p {
@@ -97,6 +128,7 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  padding: 8px;
 }
 
 .card-index .card-index-infos {
