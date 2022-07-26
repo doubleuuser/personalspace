@@ -24,7 +24,9 @@
               <% @user.posts.each do |post| %>
                   <div class="card-product-show-page mx-auto">
                  <h2 class="h2-show-page"><%= post.title.truncate(100) %>
-                 <%= image_tag post.image, width: 200 %>
+                  <% if post.image? %>
+                    <%= image_tag post.image, width: 200 %>
+                  <% end %>
 
                  <div style="background-color: white">
                  <p class="p-user-show-page"><%= post.description.truncate(70) %></p>
