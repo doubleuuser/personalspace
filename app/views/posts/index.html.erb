@@ -7,15 +7,10 @@
             <% @posts.each do |post| %>
               <% if current_user.following?(post.user) == true and post.status != "private" %>
               <div class="card-index mx-auto"><%= link_to post.original_url do %>
-<<<<<<< HEAD
-                    <h2 class="h2-index-page"><%= post.title.truncate(50) %></h2>
-                    <%= image_tag(post.image, width: 200) %>
-=======
                     <h2 class="h2-index-page"><%= post.title.truncate(100) %></h2>
                       <% if post.image? %>
                         <%= image_tag(post.image, width: 200) %>
                       <% end %>
->>>>>>> master
                     <% end %>
 
                 <div><%= link_to post_path(post) do %>
@@ -30,15 +25,10 @@
               <% @posts.each do |post| %>
                 <% if current_user == post.user %>
                   <div class="card-index mx-auto"><%= link_to post.original_url do %>
-<<<<<<< HEAD
-                    <h2 class="h2-index-page"><%= post.title.truncate(50) %></h2>
-                    <%= image_tag(post.image, width: 200) %>
-=======
                     <h2 class="h2-index-page"><%= post.title.truncate(100) %></h2>
                       <% if post.image? %>
                         <%= image_tag(post.image, width: 200) %>
                       <% end %>
->>>>>>> master
                     <% end %>
 
                     <div><%= link_to post_path(post) do %>
