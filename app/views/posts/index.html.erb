@@ -31,7 +31,7 @@
                       <% end %>
                     <% end %>
 
-                    <div><%= link_to post_path(post) do %>
+                    <div class="index-page-infos"><%= link_to post_path(post) do %>
                     <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
                     <p class="p-index-page"><%= post.note %></strong></p>
                   </div><% end %>
