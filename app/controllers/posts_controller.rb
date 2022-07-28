@@ -19,17 +19,21 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     page_url = @post.original_url
     puts page_url
-    page = MetaInspector.new(page_url)
-    @post.user = current_user
-    puts "-------------------------------------"
-    puts "-------------------------------------"
-    puts @post.note
-    puts @post.title = page.best_title
-    puts @post.original_author = page.best_author
-    puts @post.description = page.best_description
-    puts @post.image = page.images.best
-    puts @post.save!
-    redirect_to posts_path
+    if page_url.empty? == false
+      page = MetaInspector.new(page_url)
+      @post.user = current_user
+      puts "-------------------------------------"
+      puts "-------------------------------------"
+      puts @post.note
+      puts @post.title = page.best_title
+      puts @post.original_author = page.best_author
+      puts @post.description = page.best_description
+      puts @post.image = page.images.best
+      puts @post.save!
+      redirect_to posts_path
+    else
+      redirect_to posts_path
+    end
   end
 
   def show
