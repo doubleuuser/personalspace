@@ -4,6 +4,12 @@ export default class extends Controller {
   static targets = [ "slide" ]
   static values = { index: Number }
 
+  initialize() {
+    setInterval(() => {
+      this.next()
+    }, 1500);
+  }
+
   next() {
     this.indexValue++
   }
