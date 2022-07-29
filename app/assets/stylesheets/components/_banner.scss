@@ -1,23 +1,30 @@
 .banner {
-  background-size: cover;
-  background-position: center;
-  padding: 150px 0;
+  background-color: white;
+  display: block;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-image: url('https://res.cloudinary.com/doubleuuser/image/upload/v1658551633/personalspace/Stuck_at_Home_-_Sitting_On_Floor_colors_sk75a5.png');/* , linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))*/
+  height: 450px; /* You must set a specified height */
+  background-position: left; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size:cover; /* Resize the background image to cover the entire container */
+  width: 100%;
+  /* opacity: 80%; */
 }
 
 .banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  /* color: #0746a4; */
+  color: #1363DF;
   font-size: 32px;
-  font-weight: bold;
-  text-align: left;
-  margin-bottom: 12px;
-
+  font-family: Helvetica, sans-serif;
+  padding: 24px;
 }
 
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
+/* .banner h2 {
+  color: #1363DF;
+  font-size: 24px;
+  text-align: right;
+  font-family: Helvetica, sans-serif;
+  padding: 24px;
+  margin-top: 200px;
+} */
