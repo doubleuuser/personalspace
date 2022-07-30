@@ -31,12 +31,15 @@
   background: white;
   position: fixed;
   bottom: 0;
+  right: 0;
+  left: 0;
   height: 65px;
   width: 100%;
   display: flex;
   justify-content: space-around;
   border-radius: top 8px;
   align-items: center;
+  z-index: $zindex-fixed;
 }
 
 .bloc-icon img {

@@ -1,14 +1,13 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-lg-6">
+  <div class="col-12 col-lg-6">
       <body class="background-home">
         <div class="profile-header">
               <%= cl_image_tag @user.photo.key %>
-              <div class="user-info">
+              <div class="user-info align-self-center flex-fill">
                 <strong><%= @user.username %></strong>
                 <%= @user.description %>
               </div>
-              <div>
+              <div class="flex-shrink-1 align-self-center">
                 <% unless @user == current_user %>
                   <% if current_user.following?(@user) %>
                     <button class="btn btn-Unfollow"><%= link_to "Unfollow", unfollow_user_path(@user), data: { confirm: "Are you sure?" } %></button>
@@ -18,31 +17,40 @@
                 <% end %>
               </div>
             </div>
+
         </div>
 
             <div>
               <% @user.posts.each do |post| %>
                   <div class="card-product-show-page mx-auto">
-                 <h2 class="h2-show-page"><%= post.title.truncate(100) %>
-                  <% if post.image? %>
-                    <%= image_tag post.image, width: 200 %>
-                  <% end %>
+                    <div class="original-title align-self-center">
+                      <h2 class="h2-show-page"><%= post.title.truncate(50) %>
+                    </div>
+                    <div class="original-image">
+                      <% if post.image? %>
+                        <%= image_tag post.image, height: 80 %>
+                      <% else %>
+                        <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1659143866/personalspace/Stuck_at_Home_-_Horizontal_Painting_3_wfzyeu.png', height: 80) %>
+                      <% end %>
+                    </div>
 
-                 <div style="background-color: white">
-                 <p class="p-user-show-page"><%= post.description.truncate(70) %></p>
-                       <button class="btn btn-ghost-show"> <%= link_to "view", post_path(post) %></button>
-                       <div class="my-posts-container" >
-                           <div>
-                             <%= link_to edit_post_path(post) do %>
-                               <i class="fas fa-edit" style="color: #111928"></i>
-                             <% end %>
-                             <% if @user == current_user %>
-                             <%= link_to post_path(post), method: :delete, data: { confirm: "Are you sure?" } do %>
-                               <i class="fas fa-trash-alt" style="color: #111928"></i>
-                             <% end %>
-                             <% end %>
-                           </div>
-                           <div>
+                    <div class="user-post" style="background-color: white">
+                        <div class="my-posts-container" >
+                          <div class="user-note">
+                            <p class="p-user-show-page"><%= post.note.truncate(120) %></p>
+                          </div>
+                          <div class="icons-all align-self-end">
+                          <div class="icons-creator align-items-end">
+                            <% if @user == current_user %>
+                              <%= link_to edit_post_path(post) do %>
+                                <i class="fas fa-edit" style="color: #111928"></i>
+                              <% end %>
+                              <%= link_to post_path(post), method: :delete, data: { confirm: "Are you sure?" } do %>
+                                <i class="fas fa-trash-alt" style="color: #111928"></i>
+                              <% end %>
+                            <% end %>
+                            </div>
+                            <div class="icons-general align-items-end">
                              <%# <%= link_to edit_post do %>
                                <i class="fas fa-star"style="color: #111928"></i>
                            <%#  <% end %>
@@ -52,6 +60,10 @@
                             <%# <button> <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" }  </button>%>
                             <%# <% end %>
                            </div>
+                          </div>
+                    </div>
+
+
                          </div>
                  </div>
                </div>

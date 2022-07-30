@@ -83,9 +83,9 @@
 }
 
 .my-posts-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: block;
+  // align-items: center;
+  // justify-content: space-between;
   padding-left: 24px;
   padding-right: 24px;
 }
@@ -171,4 +171,35 @@
   font-size: 16;
   color: blue;
   padding: 24px;
+}
+
+.original-title {
+  text-align: left;
+
+}
+
+.original-image {
+  max-height: 300px;
+  text-align: center;
+  padding-bottom: 12px;
+}
+
+.user-post {
+  display: block;
+}
+
+.icons-all {
+  display: flex;
+  justify-content: space-between;
+
+
+}
+
+.icons-creator {
+  justify-self: end;
+}
+
+.icons-general {
+  justify-self: end;
+
 }
