@@ -2,7 +2,7 @@ require 'friendly_id'
 
 class UsersController < ApplicationController
   before_action :set_user, only: [:index, :show, :edit, :update, :destroy, :unfollow, :follow]
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :index, :show ]
 
 
   def index
