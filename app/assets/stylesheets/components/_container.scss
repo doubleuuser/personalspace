@@ -96,37 +96,6 @@
   margin-bottom: 32px;
 }
 
-
-.banner {
-  background-color: white;
-  display: block;
-  padding-left: 24px;
-  padding-right: 24px;
-  background-image: url('https://res.cloudinary.com/doubleuuser/image/upload/v1658551633/personalspace/Stuck_at_Home_-_Sitting_On_Floor_colors_sk75a5.png');
-  height: 600px; /* You must set a specified height */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size:cover; /* Resize the background image to cover the entire container */
-  width: auto;
-
-}
-
-.banner h1 {
-  color: blue;
-  font-size: 32px;
-  font-family: Helvetica, sans-serif;
-  padding: 24px;
-
-}
-
-.banner h2 {
-  color: blue;
-  font-size: 24px;
-  text-align: left;
-  font-family: Helvetica, sans-serif;
-  padding: 24px;
-}
-
 .section-left {
   margin: 12px;
   background-color: white;
@@ -134,12 +103,8 @@
   align-items:stretch;
   padding-left: 24px;
   padding-right: 24px;
-
   width: auto;
   box-shadow: 8px 8px 0 0 blue
-
-
-
 }
 
 .section {
@@ -149,19 +114,20 @@
   align-items:stretch;
   padding-left: 24px;
   padding-right: 24px;
-  border-top: 4px solid blue;
+  border-top: 4px solid #1363DF;
 }
 
 .section-image  {
   margin: 0;
   padding: 0;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
 }
 
 .section-text h1 {
   text-align: left;
   font-family: Helvetica, sans-serif;
   font-size: 24;
-  color: blue;
+  color: #1363DF;
   padding: 24px;
 }
 
@@ -169,7 +135,7 @@
   text-align: left;
   font-family: Helvetica, sans-serif;
   font-size: 16;
-  color: blue;
+  color: #1363DF;
   padding: 24px;
 }
 
@@ -191,8 +157,6 @@
 .icons-all {
   display: flex;
   justify-content: space-between;
-
-
 }
 
 .icons-creator {
@@ -202,4 +166,7 @@
 .icons-general {
   justify-self: end;
 
+
+.new-user-container {
+  justify-content: center;
 }

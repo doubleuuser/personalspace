@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <body class="background-home">
+      <body class="background-index">
         <h1>Newsfeed</h1>
 
             <% @posts.each do |post| %>
@@ -14,7 +14,7 @@
                     <% end %>
 
                 <div><%= link_to post_path(post) do %>
-                    <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
+                    <%# <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
                     <p class="p-index-page"><%= post.note %></strong></p>
                   </div><% end %>
                   <% end %>
@@ -32,17 +32,40 @@
                     <% end %>
 
                     <div><%= link_to post_path(post) do %>
-                    <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
+                    <%# <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
                     <p class="p-index-page"><%= post.note %></strong></p>
                   </div><% end %>
                   <% end %>
                   </div>
                   <% end %>
 
+                  <div class="new-user-container">
+                    <h2><em>What did you read about?</em></h2>
+                    <p style="margin-left: 100px">
+                      <span data-controller="typed-js"></span>
+                    </p>
 
-          <div>
-            <button><%= link_to "Add Post", new_post_path %></button>
-          </div>
+
+                    <div>
+                      <button class= "btn btn-flat-index"><%= link_to "Add Post", new_post_path %></button>
+                    </div>
+
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Movie_Night_zhiaxw.png', width: 300) %>
+                      </div>
+                      <div class="carousel-item">
+                        <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553189/personalspace/Stuck_at_Home_-_Group_Call_lltfqu.png', width: 300) %>
+                      </div>
+                      <div class="carousel-item">
+                        <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Online_Shopping_sxvrzw.png', width: 300) %>
+                      </div>
+                    </div>
+                  </div>
+          <%# <div> %>
+            <%# <button><%= link_to "Add Post", new_post_path </button> %>
+          <%# </div> %>
       </body>
     </div>
   </div>
