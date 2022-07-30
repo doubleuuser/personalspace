@@ -8,8 +8,10 @@
               <% if current_user.following?(post.user) == true and post.status != "private" %>
               <div class="card-index mx-auto"><%= link_to post.original_url do %>
                     <h2 class="h2-index-page"><%= post.title.truncate(100) %></h2>
-                      <% if post.image? %>
-                        <%= image_tag(post.image, width: 200) %>
+                       <% if post.image? %>
+                        <%= image_tag post.image, height: 80 %>
+                      <% else %>
+                        <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1659143866/personalspace/Stuck_at_Home_-_Horizontal_Painting_3_wfzyeu.png', height: 80) %>
                       <% end %>
                     <% end %>
 
@@ -26,8 +28,10 @@
                 <% if current_user == post.user %>
                   <div class="card-index mx-auto"><%= link_to post.original_url do %>
                     <h2 class="h2-index-page"><%= post.title.truncate(100) %></h2>
-                      <% if post.image? %>
-                        <%= image_tag(post.image, width: 200) %>
+                       <% if post.image? %>
+                        <%= image_tag post.image, height: 80 %>
+                      <% else %>
+                        <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1659143866/personalspace/Stuck_at_Home_-_Horizontal_Painting_3_wfzyeu.png', height: 80) %>
                       <% end %>
                     <% end %>
 
