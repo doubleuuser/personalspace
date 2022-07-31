@@ -8,6 +8,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
@@ -16,4 +17,5 @@ a {
 }
 a, a:visited, a:hover, a:active {
   color: inherit;
+  /* width: 50px; */
 }

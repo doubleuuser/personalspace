@@ -1,23 +1,23 @@
-<%# <div class="container">
+<div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
         <body class="background-home">
           <h1>Add your post</h1>
 
           <%= simple_form_for [ @post ] do |f| %>
-            <%# <%= f.input :original_url %>
-            <%# <%= f.input :note, as: :text %>
-            <%# <%= f.input :status, collection:Post.statuses.keys %>
+            <%= f.input :original_url %>
+            <%= f.input :note, as: :text %>
+            <%= f.input :status, collection:Post.statuses.keys %>
 
-            <%# <%= f.submit "Save", class: "btn btn-gradient"  %>
-          <%# <% end %>
-        <%# </body>
+            <%= f.submit "Save", class: "btn btn-gradient"  %>
+          <% end %>
+        </body>
     </div>
   </div>
-</div>  %>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add a post</button>
+</div>
+<%# <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add a post</button> %>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<%# <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -26,21 +26,21 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for [ @post ] do |f| %>
-          <div class="mb-3">
-            <label class="col-form-label"><%= f.input :original_url %></label>
-          </div>
-          <div class="mb-3">
-            <label class="col-form-label"><%= f.input :note, as: :text %></label>
-          </div>
-          <div class="mb-3">
-            <label class="col-form-label"><%= f.input :status, collection:Post.statuses.keys %></label>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <%= f.submit "Save", class: "btn btn-gradient"  %>
-      </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+          <%# <div class="mb-3"> %>
+            <%# <label class="col-form-label"><%= f.input :original_url </label> %>
+          <%# </div> %>
+          <%# <div class="mb-3"> %>
+            <%# <label class="col-form-label"><%= f.input :note, as: :text </label> %>
+          <%# </div> %>
+          <%# <div class="mb-3"> %>
+            <%# <label class="col-form-label"><%= f.input :status, collection:Post.statuses.keys </label> %>
+          <%# </div> %>
+      <%# </div> %>
+      <%# <div class="modal-footer"> %>
+        <%# <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
+        <%# <%= f.submit "Save", class: "btn btn-gradient"  %>
+      <%# </div> %>
+      <%# <% end %>
+    <%# </div> %>
+ <%#  </div> %>
+<%# </div> %>
