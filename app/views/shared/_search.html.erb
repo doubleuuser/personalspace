@@ -1,0 +1,32 @@
+
+<div class="search">
+  <%= simple_form_for :search, url: search_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+    <%= f.input :username, input_html: {value: @username} %>
+    <%# <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.submit "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<div class="results">
+  <% if @results.present? %>
+    <% @results.each do |user| %>
+          <div class="profile-header result">
+            <%= link_to user_path(user) do %><%= cl_image_tag user.photo.key if user.photo && user.photo.key %> <% end %>
+              <div class="user-info align-self-center flex-fill">
+                <%= link_to user_path(user) do %><strong><%= user.username %></strong><% end %>
+                <%= user.description %>
+              </div>
+
+              <div class="flex-shrink-1 align-self-center result">
+                <% unless user == current_user %>
+                  <% if current_user.following?(user) %>
+                    <button class="btn btn-Unfollow"><%= link_to "Unfollow", unfollow_user_path(user), data: { confirm: "Are you sure?" } %></button>
+                  <% else %>
+                    <button class="btn btn-Follow"><%= link_to "Follow", follow_user_path(user) %></button>
+                  <% end %>
+                <% end %>
+              </div>
+          </div>
+    <% end %>
+  <% end %>
+</div>
