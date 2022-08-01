@@ -1,14 +1,42 @@
-.navbar-lewagon {
+.navbar-light .navbar-brand {
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-light .navbar-toggler {
+  color: rgba(0, 0, 0, 0.55);
+  /* border-color: rgb(0 0 0); */
+}
+
+.navbar > .container, .navbar > .container-fluid {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
   justify-content: space-between;
-  background: white;
-  padding: 16px;
-  padding-left: 8px;
+  background-color: #1363DF;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.mobile-nav {
+  background-color: #1363DF;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 65px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-radius: top 8px;
+  align-items: center;
+  z-index: $zindex-fixed;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.bloc-icon img {
+  width: 50px;
+}
+
+@media screen and (min-width: 600px) {
+  .mobile-nav {
+  display: none;
+  }
 }
