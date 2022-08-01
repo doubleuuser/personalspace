@@ -2,7 +2,7 @@
   <div class="col-12 col-lg-6">
       <body class="background-home">
         <div class="profile-header">
-              <%= cl_image_tag @user.photo.key %>
+            <%= cl_image_tag @user.photo.key %>
               <div class="user-info align-self-center flex-fill">
                 <strong><%= @user.username %></strong>
                 <%= @user.description %>
@@ -15,61 +15,23 @@
                     <button class="btn btn-Follow"><%= link_to "Follow", follow_user_path(@user) %></button>
                   <% end %>
                 <% end %>
-              </div>
             </div>
-
         </div>
 
-            <div>
               <% @user.posts.each do |post| %>
-                  <div class="card-product-show-page mx-auto">
-                    <div class="original-title align-self-center">
-                      <h2 class="h2-show-page"><%= post.title.truncate(50) %>
-                    </div>
-                    <div class="original-image">
-                      <% if post.image? %>
-                        <%= image_tag post.image, height: 80 %>
-                      <% else %>
-                        <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1659143866/personalspace/Stuck_at_Home_-_Horizontal_Painting_3_wfzyeu.png', height: 80) %>
-                      <% end %>
-                    </div>
-
-                    <div class="user-post" style="background-color: white">
-                        <div class="my-posts-container" >
-                          <div class="user-note">
-                            <p class="p-user-show-page"><%= post.note.truncate(120) %></p>
-                          </div>
-                          <div class="icons-all align-self-end">
-                          <div class="icons-creator align-items-end">
-                            <% if @user == current_user %>
-                              <%= link_to edit_post_path(post) do %>
-                                <i class="fas fa-edit" style="color: #111928"></i>
-                              <% end %>
-                              <%= link_to post_path(post), method: :delete, data: { confirm: "Are you sure?" } do %>
-                                <i class="fas fa-trash-alt" style="color: #111928"></i>
-                              <% end %>
-                            <% end %>
-                            </div>
-                            <div class="icons-general align-items-end">
-                             <%# <%= link_to edit_post do %>
-                               <i class="fas fa-star"style="color: #111928"></i>
-                           <%#  <% end %>
-                            <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(post) %>">
-                             <i class="fab fa-twitter" style="color: #111928"></i></a>
-                            <%# <% if @user == current_user %>
-                            <%# <button> <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" }  </button>%>
-                            <%# <% end %>
-                           </div>
-                          </div>
-                    </div>
-
-
-                         </div>
-                 </div>
-               </div>
-           <% end %>
-           <button class="btn-flat-centered"><%= link_to "Add Post", new_post_path %></button>
+              <div class="card-trip">
+                  <% if post.image? %>
+                  <%= image_tag(post.image) %>
+                  <% end %>
+                <div class="card-trip-infos">
+                  <div>
+                    <h2><%= post.title.truncate(100) %></h2>
+                    <p><%= post.note %></p>
+                  </div>
+                    <h2 class="card-trip-pricing">£99.99</h2>
+                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                </div>
+          </div> <% end %>
       </body>
-    </div>
   </div>
 </div>

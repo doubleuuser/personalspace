@@ -7,38 +7,38 @@
 
             <% @posts.each do |post| %>
               <% if current_user.following?(post.user) == true and post.status != "private" %>
-              <div class="card-index mx-auto"><%= link_to post.original_url do %>
-                    <h2 class="h2-index-page"><%= post.title.truncate(100) %></h2>
-                      <% if post.image? %>
-                        <%= image_tag(post.image, width: 200) %>
-                      <% end %>
-                    <% end %>
-
-                <div><%= link_to post_path(post) do %>
-                    <%# <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
-                    <p class="p-index-page"><%= post.note %></strong></p>
-                  </div><% end %>
+               <div class="card-trip">
+                  <% if post.image? %>
+                  <%= image_tag(post.image) %>
                   <% end %>
+                  <% end %>
+                  <div class="card-trip-infos">
+                  <div>
+                    <h2><%= post.title.truncate(100) %></h2>
+                    <p><%= post.note %></p>
                   </div>
-                  <% end %>
+                  <h2 class="card-trip-pricing">£99.99</h2>
+                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                  </div>
+                </div><% end %>
 
 
               <% @posts.each do |post| %>
                 <% if current_user == post.user %>
-                  <div class="card-index mx-auto"><%= link_to post.original_url do %>
-                    <h2 class="h2-index-page"><%= post.title.truncate(100) %></h2>
-                      <% if post.image? %>
-                        <%= image_tag(post.image, width: 200) %>
-                      <% end %>
-                    <% end %>
-
-                    <div><%= link_to post_path(post) do %>
-                    <%# <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
-                    <p class="p-index-page"><%= post.note %></strong></p>
-                  </div><% end %>
+                <div class="card-trip">
+                  <% if post.image? %>
+                  <%= image_tag(post.image) %>
                   <% end %>
+                  <% end %>
+                  <div class="card-trip-infos">
+                  <div>
+                    <h2><%= post.title.truncate(100) %></h2>
+                    <p><%= post.note %></p>
                   </div>
-                  <% end %>
+                  <h2 class="card-trip-pricing">£99.99</h2>
+                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                  </div>
+                </div><% end %>
 
                   <div class="new-user-container">
                     <h2><em>What did you read about?</em></h2>
