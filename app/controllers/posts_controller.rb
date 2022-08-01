@@ -4,13 +4,15 @@ require 'friendly_id'
 
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :index, :show ]
 
 
 
   def index
     @posts = Post.all
   end
+
+
 
   def new
     @post = Post.new
@@ -68,7 +70,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:original_url, :note, :status)
+    params.require(:post).permit(:original_url, :note, :status, :username)
   end
 
   def set_post

@@ -1,12 +1,21 @@
 require 'friendly_id'
 
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:index, :show, :edit, :update, :destroy, :unfollow, :follow]
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :index, :show, :search ]
 
 
   def index
     posts
+  end
+
+  def search
+    @username = ""
+    if params[:search].present?
+      @username = params[:search][:username]
+      p @results = User.where("username ILIKE ?", "%#{@username}%")
+    end
   end
 
   def show
@@ -40,10 +49,13 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
-
   private
 
   def set_user
-    @user = User.friendly.find(params[:id])
+    unless @search.present?
+      @user = User.friendly.find(params[:id])
+    end
   end
+
+
 end
