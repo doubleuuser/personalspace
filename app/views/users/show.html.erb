@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-12 col-lg-6">
-      <body class="background-home">
+      <div class="background-home">
         <div class="profile-header">
               <%= cl_image_tag @user.photo.key %>
             <div class="user-info align-self-center flex-fill">
@@ -30,8 +30,8 @@
                       <div>
                         <p><%= post.note %></p>
                       </div>
-                      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-                      <%# <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
+                      <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
+                      <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
                     </div>
                     <div class="icons">
                         <% if @user == current_user %>
@@ -47,6 +47,6 @@
                 </div>
                 <% end %>
                 <% end %>
-    </body>
+    </div>
   </div>
 </div>
