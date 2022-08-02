@@ -13,12 +13,12 @@
                   <% end %>
                   <% end %>
                   <div class="card-trip-infos">
-                  <div>
-                    <h2><%= post.title.truncate(100) %></h2>
-                    <p><%= post.note %></p>
-                  </div>
-                  <h2 class="card-trip-pricing">£99.99</h2>
-                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                    <div>
+                      <h2><%= post.title.truncate(100) %></h2>
+                      <p><%= post.note %></p>
+                    </div>
+                    <h2 class="card-trip-pricing">£99.99</h2>
+                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
                   </div>
                 </div><% end %>
 
@@ -31,12 +31,12 @@
                   <% end %>
                   <% end %>
                   <div class="card-trip-infos">
-                  <div>
-                    <h2><%= post.title.truncate(100) %></h2>
-                    <p><%= post.note %></p>
-                  </div>
-                  <h2 class="card-trip-pricing">£99.99</h2>
-                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                    <div>
+                      <h2><%= post.title.truncate(100) %></h2>
+                      <p><%= post.note %></p>
+                    </div>
+                    <h2 class="card-trip-pricing">£99.99</h2>
+                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
                   </div>
                 </div><% end %>
 
@@ -45,27 +45,22 @@
                     <p style="margin-left: 100px">
                       <span data-controller="typed-js"></span>
                     </p>
-
-
                     <div>
                       <button type="button" class= "btn btn-flat-index" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Post</button>
                     </div>
-
                     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Movie_Night_zhiaxw.png', width: 300) %>
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Movie_Night_zhiaxw.png', width: 300) %>
+                        </div>
+                        <div class="carousel-item">
+                          <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553189/personalspace/Stuck_at_Home_-_Group_Call_lltfqu.png', width: 300) %>
+                        </div>
+                        <div class="carousel-item">
+                          <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Online_Shopping_sxvrzw.png', width: 300) %>
+                        </div>
                       </div>
-                      <div class="carousel-item">
-                        <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553189/personalspace/Stuck_at_Home_-_Group_Call_lltfqu.png', width: 300) %>
-                      </div>
-                      <div class="carousel-item">
-                        <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Online_Shopping_sxvrzw.png', width: 300) %>
-                      </div>
-                    </div>
-          <%# <div> %>
-            <%# <button><%= link_to "Add Post", new_post_path </button> %>
-          <%# </div> %>
+                  </div>
       </body>
     </div>
   </div>
