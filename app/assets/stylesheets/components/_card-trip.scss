@@ -2,10 +2,14 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-top: 24px;
+  padding: 12px;
+  border-radius: 8px;
+  /* background-color: #1363DF; */
  }
 
 .card-trip > img {
-  height: 200px;
+  height: 150px;
   width: 100%;
   object-fit: cover;
 }
@@ -14,12 +18,16 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  color: black;
+  margin-bottom: 8px;
 }
 
 .card-trip p {
-  font-size: 12px;
-  opacity: .7;
+  font-size: 14px;
+  /* opacity: .7; */
   margin: 0;
+  font-weight: bold;
+  color:black;
 }
 
 

@@ -1,42 +1,26 @@
-<div class="container">
+<div class="container"  style="background-color: white;">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <body class="background-index">
-        <h1>Newsfeed</h1>
 
+      <%# <body class="background-index"> %>
+       <%#  <h1>Newsfeed</h1> %>
 
-            <% @posts.each do |post| %>
-              <% if current_user.following?(post.user) == true and post.status != "private" %>
-               <div class="card-trip">
-                  <% if post.image? %>
-                  <%= image_tag(post.image) %>
-                  <% end %>
-                  <% end %>
-                  <div class="card-trip-infos">
-                  <div>
-                    <h2><%= post.title.truncate(100) %></h2>
-                    <p><%= post.note %></p>
-                  </div>
-                  <h2 class="card-trip-pricing">£99.99</h2>
-                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-                  </div>
-                </div><% end %>
 
 
               <% @posts.each do |post| %>
                 <% if current_user == post.user %>
                 <div class="card-trip">
+                <h2><%= post.title.truncate(100) %></h2>
                   <% if post.image? %>
                   <%= image_tag(post.image) %>
                   <% end %>
                   <% end %>
                   <div class="card-trip-infos">
-                  <div>
-                    <h2><%= post.title.truncate(100) %></h2>
-                    <p><%= post.note %></p>
-                  </div>
-                  <h2 class="card-trip-pricing">£99.99</h2>
-                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                    <div>
+                      <p><%= post.note %></p>
+                    </div>
+                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                    <%# <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
                   </div>
                 </div><% end %>
 
@@ -45,28 +29,22 @@
                     <p style="margin-left: 100px">
                       <span data-controller="typed-js"></span>
                     </p>
-
-
                     <div>
                       <button type="button" class= "btn btn-flat-index" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Post</button>
                     </div>
-
                     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Movie_Night_zhiaxw.png', width: 300) %>
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Movie_Night_zhiaxw.png', width: 300) %>
+                        </div>
+                        <div class="carousel-item">
+                          <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553189/personalspace/Stuck_at_Home_-_Group_Call_lltfqu.png', width: 300) %>
+                        </div>
+                        <div class="carousel-item">
+                          <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Online_Shopping_sxvrzw.png', width: 300) %>
+                        </div>
                       </div>
-                      <div class="carousel-item">
-                        <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553189/personalspace/Stuck_at_Home_-_Group_Call_lltfqu.png', width: 300) %>
-                      </div>
-                      <div class="carousel-item">
-                        <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Online_Shopping_sxvrzw.png', width: 300) %>
-                      </div>
-                    </div>
-          <%# <div> %>
-            <%# <button><%= link_to "Add Post", new_post_path </button> %>
-          <%# </div> %>
-      </body>
+                  </div>
     </div>
   </div>
 </div>
