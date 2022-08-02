@@ -3,6 +3,7 @@
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
         <div class="background-home">
+
           <%# <% <div class="card-product-show"> %>
           <%= link_to @post.original_url do %>
           <div class="card-trip"><%= link_to @post.original_url do %>
@@ -20,7 +21,9 @@
               </div>
           </div><% end %>
         </div>
+
         <% @post.webmentions %>
+
       </div>
   </div>
 </div>
