@@ -2,27 +2,26 @@
   <div class="col-12 col-lg-6">
       <body class="background-home">
         <div class="profile-header">
-            <%= cl_image_tag @user.photo.key %>
-          <div class="user-info align-self-center flex-fill">
-            <strong><%= @user.username %></strong>
-              <%= @user.description %>
-          </div>
-          <div class="flex-shrink-1 align-self-center">
-            <% unless @user == current_user %>
-              <% if current_user.following?(@user) %>
-                <button class="btn btn-Unfollow"><%= link_to "Unfollow", unfollow_user_path(@user), data: { confirm: "Are you sure?" } %></button>
-              <% else %>
-                <button class="btn btn-Follow"><%= link_to "Follow", follow_user_path(@user) %></button>
+              <%= cl_image_tag @user.photo.key %>
+            <div class="user-info align-self-center flex-fill">
+              <strong><%= @user.username %></strong>
+                <%= @user.description %>
+            </div>
+            <div class="flex-shrink-1 align-self-center">
+              <% unless @user == current_user %>
+                <% if current_user.following?(@user) %>
+                  <button class="btn btn-Unfollow"><%= link_to "Unfollow", unfollow_user_path(@user), data: { confirm: "Are you sure?" } %></button>
+                <% else %>
+                  <button class="btn btn-Follow"><%= link_to "Follow", follow_user_path(@user) %></button>
+                  <% end %>
                 <% end %>
-              <% end %>
+            </div>
           </div>
-        </div>
-
 
               <% @user.posts.each do |post| %>
                 <% if current_user == post.user %>
-                <div class="card-trip">
-                  <h2><%= post.title.truncate(100) %></h2>
+                <div class="card-trip"  >
+                  <%# <h2><%= post.title.truncate(100) </h2> %>
                     <% if post.image? %>
                     <%= image_tag(post.image) %>
                     <% end %>
@@ -34,18 +33,20 @@
                       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
                       <%# <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
                     </div>
-                    <% if @user == current_user %>
-                      <%= link_to edit_post_path(post) do %>
-                      <i class="fas fa-edit" style="color: #111928"></i>
-                      <% end %>
-                      <%= link_to post_path(post), method: :delete, data: { confirm: "Are you sure?" } do %>
-                      <i class="fas fa-trash-alt" style="color: #111928"></i>
-                      <% end %>
-                      <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(post) %>">
-                      <i class="fab fa-twitter" style="color: #111928"></i></a>
+                    <div class="icons">
+                        <% if @user == current_user %>
+                          <%= link_to edit_post_path(post) do %>
+                          <i class="fas fa-edit" style="color: #111928"></i>
+                          <% end %>
+                          <%= link_to post_path(post), method: :delete, data: { confirm: "Are you sure?" } do %>
+                          <i class="fas fa-trash-alt" style="color: #111928"></i>
+                          <% end %>
+                          <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(post) %>">
+                          <i class="fab fa-twitter" style="color: #111928"></i></a>
+                    </div>
                 </div>
                 <% end %>
                 <% end %>
-      </body>
+    </body>
   </div>
 </div>

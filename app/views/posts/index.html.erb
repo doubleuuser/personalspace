@@ -2,26 +2,24 @@
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
 
-      <%# <body class="background-index"> %>
-       <%#  <h1>Newsfeed</h1> %>
-
-
-
               <% @posts.each do |post| %>
                 <% if current_user == post.user %>
                 <div class="card-trip">
-                <h2><%= post.title.truncate(100) %></h2>
-                  <% if post.image? %>
-                  <%= image_tag(post.image) %>
-                  <% end %>
-                  <% end %>
-                  <div class="card-trip-infos">
-                    <div>
-                      <p><%= post.note %></p>
-                    </div>
-                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-                    <%# <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
+                  <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= post.image if post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;">
+                   <h2><%= post.title.truncate(100) %></h2>
                   </div>
+                  <%#     <h2><%= post.title.truncate(100) </h2> %>
+                  <%# if post.image? %>
+                  <%#= image_tag(post.image) %>
+                  <%# end %>
+                  <% end %>
+                    <div class="card-trip-infos">
+                      <div class="card-trip-infos2">
+                        <p>"<%= post.note %>"</p>
+                        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                      </div>
+                      <%# <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
+                    </div>
                 </div><% end %>
 
                   <div class="new-user-container">
