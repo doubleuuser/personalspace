@@ -20,18 +20,18 @@
 
               <% @user.posts.each do |post| %>
               <div class="card-trip">
+                <h2><%= post.title.truncate(100) %></h2>
                   <% if post.image? %>
                   <%= image_tag(post.image) %>
                   <% end %>
-                <div class="card-trip-infos">
-                  <div>
-                    <h2><%= post.title.truncate(100) %></h2>
-                    <p><%= post.note %></p>
-                  </div>
-                    <h2 class="card-trip-pricing">£99.99</h2>
+                  <% end %>
+                  <div class="card-trip-infos">
+                    <div>
+                      <p><%= post.note %></p>
+                    </div>
                     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-                </div>
-          </div> <% end %>
+                  </div>
+                </div><% end %>
       </body>
   </div>
 </div>
