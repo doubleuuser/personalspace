@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="background-color: white;">
   <div class="col-12 col-lg-6">
       <div class="background-home">
         <div class="profile-header">
@@ -26,9 +26,13 @@
                   </div>
                   <% end %>
                   <div class="card-trip-infos">
-                      <div class="card-trip-infos2">
-                        <p>"<%= post.note %>"</p>
-                        <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
+                    <div class="card-trip-infos2">
+                    <div class="card-trip-note">
+                      <p>"<%= post.note %>"</p>
+                    </div>
+                    <div class="card-trip-avatar">
+                      <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
+                    </div>
                       </div>
                     </div>
 
