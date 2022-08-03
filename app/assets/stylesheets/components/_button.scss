@@ -103,7 +103,7 @@
 
 .btn-black {
   color: white;
-  padding: 8px 64px;
+  padding: 8px 24px;
   border-radius: 12px;
   font-weight: bold;
   background: #000000;
@@ -111,6 +111,8 @@
   border: 1px solid #000000;
   text-align: center;
   margin: 10px auto;
+  display:flex;
+  justify-content: center;
 }
 
 .btn-black a {
