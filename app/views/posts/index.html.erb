@@ -1,23 +1,25 @@
 <div class="container"  style="background-color: white;">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-
+              <div>
               <% @posts.each do |post| %>
                 <% if current_user == post.user %>
                 <div class="card-trip">
-                  <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= post.image if post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;">
+                  <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= post.image if post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;"><%= link_to post.original_url do %>
                    <h2><%= post.title.upcase.truncate(100) %></h2>
                   </div>
+                  <% end %>
                     <% end %>
-                    <div class="card-trip-infos">
+                    <div class="card-trip-infos"><%= link_to post_path(post) do %>
                       <div class="card-trip-infos2">
                         <p>"<%= post.note %>"</p>
                         <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
                       </div>
-                    </div>
+                    </div><% end %>
                 </div><% end %>
 
-                  <div class="new-user-container">
+
+                  <div class="new-user-container" style="background-color: white;">
                     <h2><em>What did you read about?</em></h2>
                     <p style="margin-left: 100px">
                       <span data-controller="typed-js"></span>
@@ -42,30 +44,30 @@
   </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New Post</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color: #1363DF;">
+        <div class="modal-header">
+          <h5 class="form-heading" id="exampleModalLabel">New Post</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for [ Post.new ] do |f| %>
+            <div class="mb-3">
+              <label class="col-form-label"><%= f.input :original_url %></label>
+            </div>
+            <div class="mb-3">
+              <label class="col-form-label"><%= f.input :note, as: :text %></label>
+            </div>
+            <div class="mb-3">
+              <label class="col-form-label"><%= f.input :status, collection:Post.statuses.keys %></label>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <%= f.submit "Save", class: "btn btn-black"  %>
+        </div>
+        <% end %>
       </div>
-      <div class="modal-body">
-        <%= simple_form_for [ Post.new ] do |f| %>
-          <div class="mb-3">
-            <label class="col-form-label"><%= f.input :original_url %></label>
-          </div>
-          <div class="mb-3">
-            <label class="col-form-label"><%= f.input :note, as: :text %></label>
-          </div>
-          <div class="mb-3">
-            <label class="col-form-label"><%= f.input :status, collection:Post.statuses.keys %></label>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <%= f.submit "Save", class: "btn btn-gradient"  %>
-      </div>
-      <% end %>
     </div>
   </div>
-</div>

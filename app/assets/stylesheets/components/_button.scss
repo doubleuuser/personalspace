@@ -80,6 +80,7 @@
   text-decoration: none;
   color: white;
 }
+
 .btn-flat-login {
   color: white;
   border: 2px #1363DF;
@@ -139,7 +140,7 @@
   padding: 8px ;
   border-radius: 4px;
   font-weight: bold;
-  background: #1363DF;
+  background: #3AB4F2;
   transition: background 0.3s ease;
  /*  border: 1px solid #000000; */
   text-align: center;
@@ -170,4 +171,8 @@
   margin-left: 150px;
   margin-bottom: 12px;
   margin-top: 12px;
+}
+
+.btn-close {
+  color: white;
 }
