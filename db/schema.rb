@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_21_133647) do
+ActiveRecord::Schema.define(version: 2022_08_02_113820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 2022_07_21_133647) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["followable_id", "followable_type"], name: "fk_followables"
-    t.index ["followable_type", "followable_id"], name: "index_follows_on_followable_type_and_followable_id"
+    t.index ["followable_type", "followable_id"], name: "index_follows_on_followable"
     t.index ["follower_id", "follower_type"], name: "fk_follows"
-    t.index ["follower_type", "follower_id"], name: "index_follows_on_follower_type_and_follower_id"
+    t.index ["follower_type", "follower_id"], name: "index_follows_on_follower"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2022_07_21_133647) do
     t.string "original_url"
     t.string "original_author"
     t.integer "status", default: 0
+    t.string "category"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
