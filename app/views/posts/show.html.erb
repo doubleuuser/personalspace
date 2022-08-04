@@ -3,9 +3,9 @@
     <div class="col-12 col-lg-6">
       <div class="background-home">
 
-          <%# <% <div class="card-product-show"> %>
+
         <%= link_to @post.original_url do %>
-          <div class="card-trip"><%= link_to @post.original_url do %>
+        <div class="card-trip"><%= link_to @post.original_url do %>
             <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @post.image if @post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;">
                 <h2><%= @post.title.upcase.truncate(100) %></h2>
             </div>
@@ -20,9 +20,20 @@
                 </div>
               </div>
             </div>
-          </div><% end %>
+            <div class="icons">
+            <%= link_to edit_post_path(@post) do %>
+              <i class="fas fa-edit" style="color: #111928"></i>
+            <% end %>
+            <%= link_to post_path(@post), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fas fa-trash-alt" style="color: #111928"></i>
+            <% end %>
+            <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(@post) %>">
+              <i class="fab fa-twitter" style="color: #111928"></i></a>
+          </div>
       </div>
-        <% @post.webmentions %>
+      <% end %>
+      <% @post.webmentions %>
       </div>
+    </div>
   </div>
 </div>
