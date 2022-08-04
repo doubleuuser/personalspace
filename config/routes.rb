@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :users, only: [:show]
 
-  get 'users/my_posts', to: 'users#my_posts', as: 'my_posts'
+  # get 'users/my_posts', to: 'users#my_posts', as: 'my_posts'
   get 'search', to: 'users#search', as: 'search'
 
   resources :users do

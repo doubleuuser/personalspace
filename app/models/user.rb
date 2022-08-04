@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, dependent: :destroy
+  has_many :categories, through: :posts
+
   has_one_attached :photo
 
   acts_as_followable

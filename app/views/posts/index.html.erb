@@ -64,6 +64,9 @@
               <label class="col-form-label"><%= f.input :note, as: :text %></label>
             </div>
             <div class="mb-3">
+              <label class="col-form-label"><%= f.input :category, as: :text %></label>
+            </div>
+            <div class="mb-3">
               <label class="col-form-label"><%= f.input :status, collection:Post.statuses.keys %></label>
             </div>
         </div>
