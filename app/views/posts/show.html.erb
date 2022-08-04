@@ -1,28 +1,28 @@
-<meta content="text/html; charset=UTF-8" name="Content-Type"/>
-<%= display_meta_tags og: { title: @post.title, description: @post.description, image: @post.image } %>
-<%= display_meta_tags twitter: { title: @post.title, description: @post.description, image: @post.image, card: "summary" } %>
-
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-        <body class="background-home">
-          <%# <div class="card-product-show">
-          <div><%= link_to @post.original_url do %>
+      <div class="background-home">
+
+          <%# <% <div class="card-product-show"> %>
+        <%= link_to @post.original_url do %>
           <div class="card-trip"><%= link_to @post.original_url do %>
-                  <% if post.image? %>
-                  <%= image_tag(post.image) %>
-                  <% end %>
-                  <% end %>
+            <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @post.image if @post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;">
+                <h2><%= @post.title.upcase.truncate(100) %></h2>
+            </div>
+            <% end %>
             <div class="card-trip-infos">
-                <div>
-                  <h2><%= post.title.truncate(100) %></h2>
-                  <p><%= post.note %></p>
+              <div class="card-trip-infos2">
+                <div class="card-trip-note">
+                  <p>"<%= @post.note %>"</p>
                 </div>
-                  <h2 class="card-trip-pricing">£99.99</h2>
-                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                <div class="card-trip-avatar">
+                  <%= cl_image_tag @post.user.photo.key if @post.user.photo && @post.user.photo.key %>
+                </div>
               </div>
+            </div>
           </div><% end %>
-        </body>
+      </div>
+        <% @post.webmentions %>
       </div>
   </div>
 </div>

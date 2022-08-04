@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="webmention" href="https://webmention.io/www.personalspace.cc/webmention" />
+    <link rel="pingback" href="https://webmention.io/www.personalspace.cc/xmlrpc" />
+    <meta content="text/html; charset=UTF-8" name="Content-Type"/>
+    <% if params[:id].present? && params[:id].is_a?(Integer) %>
+    <%= display_meta_tags og: { title: Post.find(params[:id]).title, description: Post.find(params[:id]).description, image: Post.find(params[:id]).image } %>
+    <%= display_meta_tags twitter: { title: Post.find(params[:id]).title, description: Post.find(params[:id]).description, image: Post.find(params[:id]).image, card: "summary" } %>
+    <% end %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body style="padding-bottom: 66px;">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
@@ -20,4 +26,5 @@
 
   </body>
   <%= render 'shared/footer' %>
+
 </html>

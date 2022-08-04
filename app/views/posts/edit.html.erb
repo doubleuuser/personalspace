@@ -1,16 +1,16 @@
 <div class="container">
 <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <body class="background-home">
-        <h1>Update Your Post</h1>
+      <div class="background-form">
+        <h1 class="form-heading">UPDATE YOUR POST</h1>
           <%= simple_form_for [ @post ] do |f| %>
             <%= f.input :note %>
             <%= f.input :original_url %>
             <%= f.input :status, collection:Post.statuses.keys %>
 
-            <%= f.submit "Update",  class: "btn btn-gradient"%>
+            <%= f.submit "Update",  class: "btn btn-black"%>
           <% end %>
-      </body>
+      </div>
     </div>
   </div>
 </div>

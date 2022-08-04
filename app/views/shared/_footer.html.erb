@@ -1,20 +1,8 @@
-<%# <div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fas fa-home"></i></a>
-    <a href="#"><i class="fas fa-plus"></i></a>
-    <a href="#"><i class="fas fa-user"></i></a>  </div>
-  <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
-  </div>
-</div>
- %>
- <nav class="mobile-nav">
+<nav class="mobile-nav">
         <%= link_to posts_path do %>
             <i class="fas fa-home"></i>
         <% end %>
-        <%# <%= link_to new_post_path do %>
-          <%# <i class="fas fa-plus"></i> %>
-        <%# <% end %>
+
         <i data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="fas fa-plus"></i>
         <% if user_signed_in? %>
           <%= link_to user_path(current_user) do %>
@@ -25,9 +13,6 @@
             <i class="fas fa-user"></i>
           <% end %>
         <% end %>
-  </nav>
-
-
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -59,3 +44,4 @@
     </div>
   </div>
 </div>
+</nav>

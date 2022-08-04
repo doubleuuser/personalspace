@@ -72,3 +72,5 @@ gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 gem 'meta-tags'
 
 gem 'friendly_id'
+
+gem 'json'
