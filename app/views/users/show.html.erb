@@ -56,6 +56,29 @@
                         </div>
 
 
+          <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+          <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+          <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+      <!------ Include the above in your HEAD tag ---------->
+
+          <div class="container">
+          <div class="row">
+          <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 class="gallery-title">Find by category</h1>
+          </div>
+
+          <div align="center">
+              <% @user.posts.each do |post| %>
+              <% if post.category? %>
+              <button class="btn btn-default filter-button" data-filter= <%=  post.category %>>
+              <p><%= post.category %></p>
+              </button>
+              <% end %>
+              <% end %>
+          </div>
+
+
+            <div>
               <% @user.posts.each do |post| %>
                 <% if current_user == post.user %>
                 <div class="card-trip">
@@ -85,11 +108,13 @@
                           <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(post) %>">
                           <i class="fab fa-twitter" style="color: #111928"></i></a>
                     </div>
-                    <% end %>
-                    <% end %>
- 
 
-            <script>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+               <script>
+
               $(document).ready(function(){
 
                   $(".filter-button").click(function(){
@@ -118,6 +143,6 @@
               });
             </script>
 
-          </div>
-      </div>
- </div>
+    </div>
+  </div>
+</div>
