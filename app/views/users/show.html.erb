@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="background-color: white;">
   <div class="col-12 col-lg-6">
       <div class="background-home">
         <div class="profile-header">
@@ -20,19 +20,22 @@
 
               <% @user.posts.each do |post| %>
                 <% if current_user == post.user %>
-                <div class="card-trip"  >
-                  <%# <h2><%= post.title.truncate(100) </h2> %>
-                    <% if post.image? %>
-                    <%= image_tag(post.image) %>
-                    <% end %>
-                    <% end %>
-                    <div class="card-trip-infos">
-                      <div>
-                        <p><%= post.note %></p>
-                      </div>
-                      <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
+                <div class="card-trip">
+                  <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= post.image if post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;">
+                    <h2><%= post.title.upcase.truncate(100) %></h2>
+                  </div>
+                  <% end %>
+                  <div class="card-trip-infos">
+                    <div class="card-trip-infos2">
+                    <div class="card-trip-note">
+                      <p>"<%= post.note %>"</p>
+                    </div>
+                    <div class="card-trip-avatar">
                       <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
                     </div>
+                      </div>
+                    </div>
+
                     <div class="icons">
                         <% if @user == current_user %>
                           <%= link_to edit_post_path(post) do %>
@@ -44,9 +47,10 @@
                           <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(post) %>">
                           <i class="fab fa-twitter" style="color: #111928"></i></a>
                     </div>
-                </div>
+                  </div>
+
                 <% end %>
-                <% end %>
+              <% end %>
     </div>
   </div>
 </div>

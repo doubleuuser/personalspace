@@ -1,10 +1,11 @@
-
-<div class="search">
-  <%= simple_form_for :search, url: search_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-    <%= f.input :username, input_html: {value: @username} %>
-    <%# <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.submit "Search", class: "btn btn-primary" %>
-  <% end %>
+<div class="background-form-search">
+  <div class="search">
+    <%= simple_form_for :search, url: search_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+      <%= f.input :username, input_html: {value: @username} %>
+      <%# <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit "Search", class: "btn btn-black" %>
+    <% end %>
+  </div>
 </div>
 
 <div class="results">
