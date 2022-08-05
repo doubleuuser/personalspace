@@ -3,7 +3,7 @@
             <i class="fas fa-home"></i>
         <% end %>
 
-        <i data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="fas fa-plus"></i>
+        <i data-bs-toggle="modal" data-bs-target="#footerModal" data-bs-whatever="@mdo" class="fas fa-plus"></i>
         <% if user_signed_in? %>
           <%= link_to user_path(current_user) do %>
             <i class="fas fa-user"></i>
@@ -13,12 +13,13 @@
             <i class="fas fa-user"></i>
           <% end %>
         <% end %>
+</nav>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="footerModal" tabindex="-1" aria-labelledby="footerModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New Post</h5>
+        <h5 class="modal-title" id="footerModalLabel">New Post</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -44,4 +45,3 @@
     </div>
   </div>
 </div>
-</nav>
