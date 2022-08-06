@@ -19,29 +19,29 @@
           </div>
 
     <div>
-        <div>
-        <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h1 class="gallery-title">Find by category</h1>
-        </div>
+        <div class="category-container">
+          <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <h1 class="h1-category">FIND BY CATEGORY</h1>
+          </div>
 
-        <div align="center">
-            <button class="btn btn-default filter-button" data-filter="all">All</button>
-            <% @user.posts.each do |post| %>
-            <% if post.category? %>
-            <button class="btn btn-default filter-button" data-filter= <%=  post.category %>>
-            <p><%= post.category %></p>
-            </button>
-            <% end %>
-            <% end %>
-        </div>
+          <div class="category-icons">
+          <button class="btn btn-default filter-button" data-filter="all" ><i class="fas fa-filter"></i>All</button>
+              <% @user.posts.each do |post| %>
+              <% if post.category? %>
+              <button class="btn btn-default filter-button" data-filter= <%=  post.category %>><i class="fas fa-filter"></i>
+              <%= post.category %>
+              </button>
+              <% end %>
+              <% end %>
+          </div>
+    </div>
 
                   <% @user.posts.each do |post| %>
-                    <% if current_user == post.user %>
+
                     <div class="card-trip filter <%=  post.category %>">
                       <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= post.image if post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;">
-                      <h2><%= post.title.truncate(100) %></h2>
+                      <h2><%= post.title.upcase.truncate(100) %></h2>
                       </div>
-                      <% end %>
                         <div class="card-trip-infos">
                         <div class="card-trip-infos2">
                           <div class="card-trip-note">

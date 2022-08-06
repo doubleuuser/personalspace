@@ -183,3 +183,13 @@
 .profile-header.result {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+.category-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* .category-icons {
+
+} */
