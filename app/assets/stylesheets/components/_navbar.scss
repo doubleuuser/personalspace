@@ -8,10 +8,9 @@
   /* border-color: rgb(0 0 0); */
 }
 
-.navbar > .container, .navbar > .container-fluid {
+.navbar > .container-fluid {
   display: flex;
-  flex-wrap: inherit;
-  align-items: center;
+  /* flex-wrap: inherit; */
   justify-content: space-between;
   background-color: #1363DF;
 }
@@ -45,4 +44,5 @@
   text-decoration: none;
   color: white;
   font-size: x-large;
+  padding-left: 24px;
 }
