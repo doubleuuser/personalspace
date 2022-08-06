@@ -1,0 +1,29 @@
+<% @user.posts.each do |post| %>
+          <div class="card-trip filter <%=  post.category %>">
+            <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= post.image if post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;">
+              <h2><%= post.title.upcase.truncate(100) %></h2>
+            </div>
+            <div class="card-trip-infos">
+              <div class="card-trip-infos2">
+                <div class="card-trip-note">
+                  <p><%= post.note %></p>
+                </div>
+                <div class="card-trip-avatar">
+                  <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
+                </div>
+              </div>
+            </div>
+            <div class="icons">
+              <% if @user == current_user %>
+                <%= link_to edit_post_path(post) do %>
+                  <i class="fas fa-edit" style="color: #111928"></i>
+                <% end %>
+                <%= link_to post_path(post), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <i class="fas fa-trash-alt" style="color: #111928"></i>
+                <% end %>
+                <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(post) %>">
+                <i class="fab fa-twitter" style="color: #111928"></i></a>
+              <% end %>
+            </div>
+          </div>
+        <% end %>

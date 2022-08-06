@@ -1,0 +1,15 @@
+<div class="category-container">
+  <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <h1 class="h1-category">FIND BY CATEGORY</h1>
+  </div>
+  <div class="category-icons">
+    <button class="btn btn-default filter-button" data-filter="all" ><i class="fas fa-filter"></i>All</button>
+    <% @user.posts.each do |post| %>
+      <% if post.category? %>
+        <button class="btn btn-default filter-button" data-filter= <%=  post.category %>><i class="fas fa-filter"></i>
+          <%= post.category %>
+        </button>
+      <% end %>
+    <% end %>
+  </div>
+</div>
