@@ -11,6 +11,7 @@ import "channels"
 //= require popper
 //= require bootstrap
 import "bootstrap"
+
 import "./post_category"
 
 Rails.start()

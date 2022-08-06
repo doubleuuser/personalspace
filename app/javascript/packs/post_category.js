@@ -1,7 +1,6 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
-
 $(document).ready(function(){
 
   $(".filter-button").click(function(){
