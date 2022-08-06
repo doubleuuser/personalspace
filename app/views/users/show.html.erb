@@ -19,7 +19,7 @@
           </div>
 
   <div>
-        <div class="row">
+        <div class="#">
         <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h1 class="gallery-title">Find by category</h1>
         </div>
@@ -36,13 +36,13 @@
 
                   <% @user.posts.each do |post| %>
                     <% if current_user == post.user %>
-                    <div class="card-trip filter <%=  post.category %>">
+                    <div class="card-trip <%= post.category %>">
                       <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= post.image if post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;">
                       <h2><%= post.title.truncate(100) %></h2>
                       </div>
                       <% end %>
                         <div class="card-trip-infos">
-                        <div class="ard-trip-infos2">
+                        <div class="card-trip-infos2">
                           <div class="card-trip-note">
                             <p><%= post.note %></p>
                           </div>
@@ -51,8 +51,6 @@
                         </div>
                         </div>
                         </div>
-
-
                     <div class="icons">
                         <% if @user == current_user %>
                           <%= link_to edit_post_path(post) do %>
