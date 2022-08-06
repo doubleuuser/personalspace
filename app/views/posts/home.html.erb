@@ -1,12 +1,12 @@
 <div class="home-container">
   <div class="row justify-content-center">
-    <div class="col-12 col-lg-6<%#  col-xl-2 %>">
+    <div class="col-12 col-lg-2 col-xl-2">
       <div class="background-home">
         <!-- This div is centered and takes 6 columns -->
 
            <%#  <h1>personalspace</h1> %>
             <h2 class="home-h2">A new way to organize your readings and express your thoughts.</h2>
-            <button class= "btn btn-flat-login"><%= link_to "Login", new_user_session_path %></button>
+            <button class= "btn btn-flat-login"><%= link_to "Sign Up", new_user_session_path %></button>
 
             <%# <button class= "btn btn-flat-index"><%= link_to "Get Started", 'users/sign_up'</button> %>
             <div class='banner'>
@@ -15,7 +15,7 @@
 
           <div class='section'>
             <div class='section-image'>
-              <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Movie_Night_zhiaxw.png', width: 240) %>
+              <%# <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Movie_Night_zhiaxw.png', width: 240) %>
             </div>
 
             <div class='section-text'>
@@ -31,7 +31,7 @@
               <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553189/personalspace/Stuck_at_Home_-_Group_Call_lltfqu.png', width: 240) %>
             </div>
             <div class='section-text'>
-              <h1>Private, friends only, or public</h1>
+              <h1>Public, private, or just friends</h1>
               <h2>You can easily set and change who will be able to see your posts.</h2>
             </div>
               <button <%# class='lp' %> class= "btn btn-flat-index"><%= link_to "Sign Up", 'users/sign_up'%></button>
@@ -45,7 +45,8 @@
               <h1>Share your thoughts</h1>
               <h2>Easily share your posts to other platforms with just a click, and link your personalspace to let it become your website.</h2>
               </div>
-              <button <%# class='lp' %> class= "btn btn-flat-index"><%= link_to "Sign Up", 'users/sign_up'%></button>
+              <button class= "btn btn-flat-index" style="margin-bottom: 48px"><%= link_to "Sign Up", 'users/sign_up'%></button>
+
           </div>
 
 
