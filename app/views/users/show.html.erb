@@ -1,73 +1,9 @@
 <div class="container" style="background-color: white;">
   <div class="col-12 col-lg-6">
-      <div class="background-home">
-        <div class="profile-header">
-              <%= cl_image_tag @user.photo.key %>
-            <div class="user-info align-self-center flex-fill">
-              <strong><%= @user.username %></strong>
-                <%= @user.description %>
-            </div>
-            <div class="flex-shrink-1 align-self-center">
-              <% unless @user == current_user %>
-                <% if current_user.following?(@user) %>
-                  <button class="btn btn-Unfollow"><%= link_to "Unfollow", unfollow_user_path(@user), data: { confirm: "Are you sure?" } %></button>
-                <% else %>
-                  <button class="btn btn-Follow"><%= link_to "Follow", follow_user_path(@user) %></button>
-                  <% end %>
-                <% end %>
-            </div>
-          </div>
-
-    <div>
-        <div class="category-container">
-          <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <h1 class="h1-category">FIND BY CATEGORY</h1>
-          </div>
-
-          <div class="category-icons">
-          <button class="btn btn-default filter-button" data-filter="all" ><i class="fas fa-filter"></i>All</button>
-              <% @user.posts.each do |post| %>
-              <% if post.category? %>
-              <button class="btn btn-default filter-button" data-filter= <%=  post.category %>><i class="fas fa-filter"></i>
-              <%= post.category %>
-              </button>
-              <% end %>
-              <% end %>
-          </div>
+    <div class="background-home">
+      <%= render 'shared/profile' %>
+      <%= render 'shared/categories' %>
+      <%= render 'shared/user_posts' %>
     </div>
-
-                  <% @user.posts.each do |post| %>
-
-                    <div class="card-trip filter <%=  post.category %>">
-                      <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= post.image if post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;">
-                      <h2><%= post.title.upcase.truncate(100) %></h2>
-                      </div>
-                        <div class="card-trip-infos">
-                        <div class="card-trip-infos2">
-                          <div class="card-trip-note">
-                            <p><%= post.note %></p>
-                          </div>
-                        <div class="card-trip-avatar">
-                        <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
-                        </div>
-                        </div>
-                        </div>
-
-                    <div class="icons">
-                        <% if @user == current_user %>
-                          <%= link_to edit_post_path(post) do %>
-                          <i class="fas fa-edit" style="color: #111928"></i>
-                          <% end %>
-                          <%= link_to post_path(post), method: :delete, data: { confirm: "Are you sure?" } do %>
-                          <i class="fas fa-trash-alt" style="color: #111928"></i>
-                          <% end %>
-                          <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(post) %>">
-                          <i class="fab fa-twitter" style="color: #111928"></i></a>
-                    </div>
-                    </div>
-                    <% end %>
-                    <% end %>
-
-        </div>
-        </div>
+  </div>
 </div>
