@@ -20,12 +20,14 @@
                 </div>
               </div>
             </div>
+            <% if @post.user == current_user %>
             <div class="icons">
             <%= link_to edit_post_path(@post) do %>
               <i class="fas fa-edit" style="color: #111928"></i>
             <% end %>
             <%= link_to post_path(@post), method: :delete, data: { confirm: "Are you sure?" } do %>
               <i class="fas fa-trash-alt" style="color: #111928"></i>
+            <% end %>
             <% end %>
             <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(@post) %>">
               <i class="fab fa-twitter" style="color: #111928"></i></a>
