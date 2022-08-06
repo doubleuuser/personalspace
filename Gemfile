@@ -74,3 +74,5 @@ gem 'meta-tags'
 gem 'friendly_id'
 
 gem 'json'
+
+gem 'jquery-rails'

@@ -7,11 +7,14 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import "post_category"
+//= require jquery3
+//= require popper
+//= require bootstrap
+import "bootstrap"
+import "./post_category"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 // import "controllers"
-import "bootstrap"

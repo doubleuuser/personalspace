@@ -17,12 +17,7 @@
                 <% end %>
             </div>
           </div>
-        </div>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
  <div class="container">
         <div class="row">
@@ -39,63 +34,25 @@
             <% end %>
             <% end %>
         </div>
-        <br/>
+
                   <% @user.posts.each do |post| %>
                     <% if current_user == post.user %>
-                    <div class="card-trip col-lg-4 col-md-4 col-sm-4 col-xs-6 filter <%=  post.category %>">
+                    <div class="card-trip filter <%=  post.category %>">
+                      <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= post.image if post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;">
                       <h2><%= post.title.truncate(100) %></h2>
-                        <% if post.image? %>
-                        <%= image_tag(post.image) %>
-                        <% end %>
-                        <% end %>
+                      </div>
+                      <% end %>
                         <div class="card-trip-infos">
-                          <div>
+                        <div class="ard-trip-infos2">
+                          <div class="card-trip-note">
                             <p><%= post.note %></p>
                           </div>
-                          <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
+                        <div class="card-trip-avatar">
+                        <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
+                        </div>
+                        </div>
                         </div>
 
-
-          <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-          <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-          <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-      <!------ Include the above in your HEAD tag ---------->
-
-          <div class="container">
-          <div class="row">
-          <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h1 class="gallery-title">Find by category</h1>
-          </div>
-
-          <div align="center">
-              <% @user.posts.each do |post| %>
-              <% if post.category? %>
-              <button class="btn btn-default filter-button" data-filter= <%=  post.category %>>
-              <p><%= post.category %></p>
-              </button>
-              <% end %>
-              <% end %>
-          </div>
-
-
-            <div>
-              <% @user.posts.each do |post| %>
-                <% if current_user == post.user %>
-                <div class="card-trip">
-                  <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= post.image if post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;">
-                    <h2><%= post.title.upcase.truncate(100) %></h2>
-                  </div>
-                  <% end %>
-                  <div class="card-trip-infos">
-                  <div class="card-trip-infos2">
-                    <div class="card-trip-note">
-                      <p>"<%= post.note %>"</p>
-                    </div>
-                    <div class="card-trip-avatar">
-                      <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
-                    </div>
-                    </div>
-                    </div>
 
                     <div class="icons">
                         <% if @user == current_user %>
@@ -108,41 +65,10 @@
                           <a href="https://twitter.com/intent/tweet?url=http://personalspace.cc<%=post_path(post) %>">
                           <i class="fab fa-twitter" style="color: #111928"></i></a>
                     </div>
+                    </div>
+                    <% end %>
+                    <% end %>
 
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
-               <script>
-
-              $(document).ready(function(){
-
-                  $(".filter-button").click(function(){
-                      var value = $(this).attr('data-filter');
-
-                      if(value == "all")
-                      {
-                          //$('.filter').removeClass('hidden');
-                          $('.filter').show('1000');
-                      }
-                      else
-                      {
-              //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
-              //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-                          $(".filter").not('.'+value).hide('3000');
-                          $('.filter').filter('.'+value).show('3000');
-
-                      }
-                  });
-
-                  if ($(".filter-button").removeClass("active")) {
-              $(this).removeClass("active");
-              }
-              $(this).addClass("active");
-
-              });
-            </script>
-
+        </div>
     </div>
-  </div>
 </div>
