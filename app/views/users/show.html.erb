@@ -18,13 +18,14 @@
             </div>
           </div>
 
-  <div>
+    <div>
         <div>
         <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h1 class="gallery-title">Find by category</h1>
         </div>
 
         <div align="center">
+            <button class="btn btn-default filter-button" data-filter="all">All</button>
             <% @user.posts.each do |post| %>
             <% if post.category? %>
             <button class="btn btn-default filter-button" data-filter= <%=  post.category %>>
@@ -68,5 +69,5 @@
                     <% end %>
 
         </div>
-    </div>
+        </div>
 </div>
