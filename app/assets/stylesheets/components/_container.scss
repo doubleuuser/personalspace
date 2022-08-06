@@ -184,6 +184,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+
 .category-container {
   display: flex;
   flex-wrap: wrap;
@@ -193,3 +194,9 @@
 /* .category-icons {
 
 } */
+
+
+.carousel-item.active {
+  text-align: center;
+
+}
