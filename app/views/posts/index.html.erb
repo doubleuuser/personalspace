@@ -4,7 +4,8 @@
               <div>
               <% @posts.each do |post| %>
                 <% @post_count = 0 %>
-                <% if current_user == post.user %>
+                <% if current_user == post.user || current_user.following?(post.user) == true && post.status != "private" %>
+                <% @post_count = @post_count + 1 %>
                 <div class="card-trip">
                   <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= post.image if post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;"><%= link_to post.original_url do %>
                    <h2><%= post.title.upcase.truncate(100) %></h2>
@@ -21,7 +22,6 @@
                         </div>
                       </div>
                     </div>
-                    <% @post_count = @post_count + 1 %>
                     <% end %>
                     <% end %>
                 </div><% end %>
@@ -42,12 +42,7 @@
                         <div class="carousel-item active">
                           <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Movie_Night_zhiaxw.png', width: 360) %>
                         </div>
-                        <div class="carousel-item">
-                          <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553189/personalspace/Stuck_at_Home_-_Group_Call_lltfqu.png', width: 360) %>
-                        </div>
-                        <div class="carousel-item">
-                          <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Online_Shopping_sxvrzw.png', width: 360) %>
-                        </div>
+
                       </div>
                   </div>
                   <% end %>
