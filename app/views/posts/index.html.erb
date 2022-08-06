@@ -3,13 +3,14 @@
     <div class="col-12 col-lg-6">
               <div>
               <% @posts.each do |post| %>
+                <% @post_count = 0 %>
                 <% if current_user == post.user %>
                 <div class="card-trip">
                   <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= post.image if post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;"><%= link_to post.original_url do %>
                    <h2><%= post.title.upcase.truncate(100) %></h2>
                   </div>
                   <% end %>
-                    <% end %>
+
                     <div class="card-trip-infos"><%= link_to post_path(post) do %>
                       <div class="card-trip-infos2">
                         <div class="card-trip-note">
@@ -19,10 +20,13 @@
                           <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
                         </div>
                       </div>
-                    </div><% end %>
+                    </div>
+                    <% @post_count = @post_count + 1 %>
+                    <% end %>
+                    <% end %>
                 </div><% end %>
 
-                <% if (@posts.length == 0) %>
+                <% if (@post_count == 0) %>
                   <div class="new-user-container" style="background-color: white;">
                     <h2><em>What did you read about?</em></h2>
                     <p style="margin-left: 100px">
