@@ -12,10 +12,13 @@ import "channels"
 //= require bootstrap
 import "bootstrap"
 
-import "./post_category"
+// import "./post_category"
+import {categoryFilter} from "./post_category"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
+document.addEventListener("turbolinks:load", ()=>{
+  categoryFilter()
+})
 // import "controllers"

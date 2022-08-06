@@ -1,6 +1,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+
+const categoryFilter = () => {
 $(document).ready(function(){
 
   $(".filter-button").click(function(){
@@ -27,3 +29,6 @@ $(this).removeClass("active");
 $(this).addClass("active");
 
 });
+}
+
+export {categoryFilter}
