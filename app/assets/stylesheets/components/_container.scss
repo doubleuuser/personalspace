@@ -114,12 +114,14 @@
   align-items:stretch;
   padding-left: 24px;
   padding-right: 24px;
-  border-top: 4px solid #1363DF;
+  box-shadow: #1363DF;
 }
 
 .section-image  {
   margin: 0;
   padding: 0;
+  margin-top: 24px;
+  text-align: center;
   /* background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)); */
 }
 
@@ -128,7 +130,11 @@
   font-family: Helvetica, sans-serif;
   font-size: 24;
   color: #1363DF;
-  padding: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: bold;
 }
 
 .section-text h2 {
