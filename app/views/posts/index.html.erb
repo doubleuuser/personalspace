@@ -29,7 +29,9 @@
                       <span data-controller="typed-js"></span>
                     </p>
                     <div>
+                      <%= link_to new_post_path do %>
                       <button type="button" class= "btn btn-flat-index" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Post</button>
+                      <% end %>
                     </div>
                     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                       <div class="carousel-inner">
@@ -48,33 +50,3 @@
   </div>
 </div>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content" style="background-color: #1363DF;">
-        <div class="modal-header">
-          <h5 class="form-heading" id="exampleModalLabel">New Post</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <%= simple_form_for [ Post.new ] do |f| %>
-            <div class="mb-3">
-              <label class="col-form-label"><%= f.input :original_url %></label>
-            </div>
-            <div class="mb-3">
-              <label class="col-form-label"><%= f.input :note, as: :text %></label>
-            </div>
-            <div class="mb-3">
-              <label class="col-form-label"><%= f.input :category, as: :text %></label>
-            </div>
-            <div class="mb-3">
-              <label class="col-form-label"><%= f.input :status, collection:Post.statuses.keys %></label>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <%= f.submit "Save", class: "btn btn-black"  %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
