@@ -2,50 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
       <div>
-              <% @posts.each do |post| %>
-                <% @post_count = 0 %>
-                <% if current_user == post.user || current_user.following?(post.user) == true && post.status != "private" %>
-                <% @post_count = @post_count + 1 %>
-                <div class="card-trip m-3">
-                  <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= post.image if post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;"><%= link_to post.original_url do %>
-                   <h2><%= post.title.upcase.truncate(100) %></h2>
-                  </div>
-                  <% end %>
-                    <div class="card-trip-infos"><%= link_to post_path(post) do %>
-                      <div class="card-trip-infos2">
-                        <div class="card-trip-note">
-                          <p>"<%= post.note %>"</p>
-                        </div>
-                        <div class="card-trip-avatar">
-                          <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
-                        </div>
-                      </div>
-                    </div>
-                    <% end %>
-                    <% end %>
-                </div>
-                <% end %>
-
-                <% if (@post_count == 0) %>
-                  <div class="new-user-container" style="background-color: white;">
-                    <h2><em>What did you read about?</em></h2>
-                    <p style="margin-left: 100px">
-                      <span data-controller="typed-js"></span>
-                    </p>
-                    <div>
-                      <%= link_to new_post_path do %>
-                      <button type="button" class= "btn btn-flat-index" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Post</button>
-                      <% end %>
-                    </div>
-                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <%= image_tag('https://res.cloudinary.com/doubleuuser/image/upload/v1658553188/personalspace/Stuck_at_Home_-_Movie_Night_zhiaxw.png', width: 360) %>
-                        </div>
-
-                      </div>
-                  </div>
-                <% end %>
+        <%= render 'shared/feed' %>
       </div>
     </div>
   </div>
