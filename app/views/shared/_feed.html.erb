@@ -1,0 +1,30 @@
+<%# display posts if user has posts in their feed (own posts or posts from users they follow) %>
+  <% @posts.each do |post| %>
+    <% @post_count = 0 %>
+    <% if current_user == post.user || current_user.following?(post.user) == true && post.status != "private" %>
+      <% @post_count = @post_count + 1 %>
+      <div class="card-trip m-3">
+        <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= post.image if post.image? %>); height: 200px; background-size: cover; background-position: center; display: flex; align-items: center;">
+          <%= link_to post.original_url do %>
+          <h2><%= post.title.upcase.truncate(100) %></h2>
+          <% end %>
+        </div>
+        <div class="card-trip-infos"><%= link_to post_path(post) do %>
+          <div class="card-trip-infos2">
+            <div class="card-trip-note">
+              <p>"<%= post.note %>"</p>
+            </div>
+            <div class="card-trip-avatar">
+              <%= cl_image_tag post.user.photo.key if post.user.photo && post.user.photo.key %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+    <% end %>
+      </div>
+  <% end %>
+
+  <%# display placeholder if they do not have posts in their feed %>
+  <% if (@post_count == 0) %>
+    <%= render 'shared/placeholder' %>
+  <% end %>
