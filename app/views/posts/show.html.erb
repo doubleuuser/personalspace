@@ -20,8 +20,8 @@
                 </div>
               </div>
             </div>
-            <% if @post.user == current_user %>
             <div class="icons">
+            <% if @post.user == current_user %>
             <%= link_to edit_post_path(@post) do %>
               <i class="fas fa-edit" style="color: #111928"></i>
             <% end %>
@@ -34,7 +34,7 @@
           </div>
       </div>
       <% end %>
-      <% @post.webmentions %>
+
       </div>
     </div>
   </div>
